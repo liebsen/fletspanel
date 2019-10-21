@@ -9,7 +9,7 @@
           <span>Ingresar</span>
         </h2>
         <h4>Bienvenido <em>FletsPanel</em>. Ingresa tus datos para entrar.</h4>
-        <form class="form has-text-left fadeIn" @submit.prevent="login">
+        <form class="form has-text-left fadeIn" @submit.prevent="submit">
           <div class="field">
             <div class="control">
               <input v-model="data.email" class="input is-success" type="text" placeholder="user@fletsapp.com">
@@ -17,7 +17,7 @@
           </div>
           <div class="field">
             <div class="control">
-              <input v-model="data.password" class="input is-success" type="text" placeholder="********">
+              <input v-model="data.password" class="input is-success" type="password" placeholder="********">
             </div>
           </div>
           <div class="field">
@@ -36,12 +36,26 @@ export default {
   name: 'login',
   methods: {
     submit : function(){
-      let email = this.email;
-      let password = this.password;
+      let email = this.data.email;
+      let password = this.data.password;
+      this.$root.loading = true
       this.$store
         .dispatch("login", { email, password })
-        .then(() => this.$router.push("/"))
-        .catch(err => console.log(err));
+        .then(() => {
+          this.$root.snackbar('success',"Sesión iniciada correctamente. Redirigiendo...")
+          this.$root.loading = false
+          setTimeout(() => {
+            this.$router.push("/")
+          },3000)
+        })
+        .catch(err => {
+          this.$root.loading = false
+          if(err.response.status === 404){
+            this.$root.snackbar('error',"No se encontró el usuario")
+          } else if(err.response.status === 401){
+            this.$root.snackbar('error',"La constraseña es incorrecta")
+          }
+        });
     }
   },
   data () {

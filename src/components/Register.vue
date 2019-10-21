@@ -1,33 +1,24 @@
 <template>
   <section class="hero">
-    <div class="has-background-white">
-      <div class="container has-text-left">
-        <h2 class="title">
-          <span>📧 Crear nueva cuenta en FletsApp</span>
-        </h2>
-      </div>
-    </div>   
     <div class="hero-body">
-      <div class="container">
-        <h2 class="subtitle">
-          Por favor ingresa tu código de verificación
+      <div class="container content is-flex-column is-vertical">
+        <h2>
+          <span class="icon">
+            <span class="fas fa-user"></span>
+          </span> 
+          <span>Crear cuenta</span>
         </h2>
-        <form v-show="!verified" class="form has-text-left" @submit.prevent="verify">
+        <h4>Crea tu cuenta en <em>FletsApp</em></h4>
+        <p>Para crear una cuenta en <em>FletsApp</em> necesitas un código de invitación. Si todavía no lo tenés pedilo. <router-link to="/contacto">Solicitar código de invitación.</router-link></p>
+        <form class="form has-text-left fadeIn" @submit.prevent="submit">
           <div class="field">
             <div class="control">
-              <input class="input is-success" type="text" placeholder="Success input">
+              <input v-model="data.code" class="input is-info" type="text" placeholder="Código de invitación">
             </div>
           </div>
           <div class="field">
-            <div class="control ">
-              <button type="submit" class="button is-link is-medium is-fullwidth" :class="{'is-loading' : loading}">Verificar</button>
-            </div>
-          </div>  
-        </form>
-        <form v-show="verified" class="form has-text-left" @submit.prevent="register">
-          <div class="field">
             <div class="control">
-              <input v-model="data.fullname" class="input is-success" type="text" placeholder="Nombre completo">
+              <input v-model="data.name" class="input is-success" type="text" placeholder="Nombre completo">
             </div>
           </div>
           <div class="field">
@@ -37,7 +28,12 @@
           </div>
           <div class="field">
             <div class="control">
-              <input v-model="data.phone" class="input is-success" type="text" placeholder="Teléfono">
+              <input v-model="data.password" class="input is-danger" type="password" placeholder="Contraseña">
+            </div>
+          </div>
+          <div class="field">
+            <div class="control">
+              <input v-model="data.password2" class="input is-danger" type="password" placeholder="Confirmar contraseña">
             </div>
           </div>
           <div class="field">
@@ -50,7 +46,7 @@
           </div>
           <div class="field">
             <div class="control">
-              <button type="submit" class="button is-link is-medium is-fullwidth" :class="{'is-loading' : loading}">Registrarme</button>
+              <button type="submit" class="button is-link is-medium is-fullwidth" :class="{'is-loading' : $root.loading}">Registrarme</button>
             </div>
           </div>  
         </form>
@@ -65,14 +61,12 @@ export default {
   name: 'register',
   data() {
     return {
-      name: "",
-      email: "",
-      password: "",
-      password_confirmation: "",
+      acceptTerms: false,
+      data: {}
     };
   },
   methods: {
-    register: function() {
+    submit: function() {
       let data = {
         name: this.name,
         email: this.email,

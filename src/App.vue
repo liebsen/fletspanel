@@ -62,6 +62,13 @@
             <span>Acerca de <em>FletsApp</em></span>
           </router-link>
   
+          <router-link to="/register">
+            <span class="icon">
+              <span class="fas fa-user"></span>
+            </span> 
+            <span>Crear una cuenta</span>
+          </router-link>
+
           <router-link to="/contacto">
             <span class="icon">
               <span class="fas fa-envelope"></span>
@@ -118,18 +125,6 @@ export default {
   computed: {
     isLoggedIn: function() {
       return this.$store.getters.isLoggedIn;
-    }
-  },
-  methods: {
-    logout: function() {
-      this.$store.dispatch("logout").then(() => {
-        this.$router.push("/login");
-      });
-    }
-  },
-  data () {
-    return {
-      ver: '2.0.1'
     }
   }
 }
