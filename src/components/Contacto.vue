@@ -10,7 +10,7 @@
         </h2>
         <h4>En <em>FletsApp</em> estamos siempre dispuestos a recibir feedback de nuestros usuarios.</h4>
         <p>Por favor ingresa tus datos para contactarnos</p>
-        <form class="form padless has-text-left fadeIn" @submit.prevent="submit">
+        <form class="form is-padless has-text-left fadeIn" @submit.prevent="submit">
           <div class="columns">
             <div class="column">
               <div class="field is-horizontal">

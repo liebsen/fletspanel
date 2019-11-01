@@ -6,7 +6,12 @@
   
     <div class="menu hidden-loading slideDown">
       <div class="menu-container columns is-vcentered is-mobile">
-        <router-link class="header-logo" to="/">
+
+        <router-link v-if="isLoggedIn" class="header-logo" to="/panel">
+          <img src="/assets/img/delivery-truck.png" >
+        </router-link>
+
+        <router-link class="header-logo" to="/" v-else>
           <img src="/assets/img/delivery-truck.png" >
         </router-link>
 
@@ -36,7 +41,11 @@
       </div>
 
       <div class="menu-items">
-        <router-link to="/">
+        <router-link to="/panel" v-if="isLoggedIn">
+          <img src="/assets/delivery-truck_1f69a.png" >
+        </router-link>
+
+        <router-link to="/" v-else>
           <img src="/assets/delivery-truck_1f69a.png" >
         </router-link>
 
@@ -62,11 +71,11 @@
             <span>Acerca de <em>FletsApp</em></span>
           </router-link>
   
-          <router-link to="/register">
+          <router-link to="/register" v-if="!isLoggedIn">
             <span class="icon">
-              <span class="fas fa-user"></span>
+              <span class="fas fa-ticket-alt"></span>
             </span> 
-            <span>Crear una cuenta</span>
+            <span>Código de invitación</span>
           </router-link>
 
           <router-link to="/contacto">
@@ -76,24 +85,22 @@
             <span>Contacto</span>
           </router-link>
 
-          <hr>
+          <hr v-if="!isLoggedIn">
   
-          <div class="has-text-centered">
-            <router-link class="button is-white is-large is-outlined" to="/ruta">
+          <div class="has-text-centered" v-if="!isLoggedIn">
+            <router-link class="button is-white is-large is-outlined" to="/panel">
               <span class="icon">
-                <span class="fas fa-truck-loading"></span>
+                <span class="fas fa-charging-station"></span>
               </span> 
-              <span>Comenzar</span>            
+              <span>Ver Actividad</span>            
             </router-link>
           </div>
         </div>
       </div>    
     </div>
     
-    <keep-alive v-show="!$root.loading" exclude="game">
-      <transition>
-        <router-view/>
-      </transition>
+    <keep-alive v-show="!$root.loading" exclude="preference,panel-list">
+      <router-view/>
     </keep-alive>
 
     <div class="tosprompt">
@@ -125,6 +132,13 @@ export default {
   computed: {
     isLoggedIn: function() {
       return this.$store.getters.isLoggedIn;
+    }
+  },
+  methods: {
+    logout: function() {
+      this.$store.dispatch("logout").then(() => {
+        this.$router.push("/login");
+      });
     }
   }
 }

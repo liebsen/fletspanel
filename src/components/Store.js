@@ -55,9 +55,6 @@ export default new Vuex.Store({
           const token = res.data.token
           const user = res.data.user
           localStorage.setItem('token', token)
-          // Add the following line:
-          axios.defaults.headers.common['Authorization'] = token
-          commit('auth_success', token, user)
           resolve(res)
         })
         .catch(err => {
@@ -73,6 +70,24 @@ export default new Vuex.Store({
         localStorage.removeItem('token')
         delete axios.defaults.headers.common['Authorization']
         resolve()
+      })
+    },
+    validate({ commit }, code) {
+      return new Promise((resolve, reject) => {
+        commit('auth_request')
+        axios.post( this.state.endpoint + '/account/validate', code ).then((res) => {
+          const token = res.data.token
+          const user = res.data.user
+          localStorage.setItem('token', token)
+          axios.defaults.headers.common['Authorization'] = token
+          commit('auth_success', token, user)
+          resolve(res)
+        })
+        .catch(err => {
+          commit('auth_error', err)
+          localStorage.removeItem('token')
+          reject(err)
+        })
       })
     }
   },

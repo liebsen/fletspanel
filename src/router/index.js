@@ -1,20 +1,36 @@
 import Vue from 'vue'
+import moment from 'moment'
 import Router from 'vue-router'
-import store from '../store'
+import store from '../components/Store'
 import Landing from '../components/Landing'
 import Register from '../components/Register'
+import RegisterSuccess from '../components/RegisterSuccess'
 import Login from '../components/Login'
+import Validate from '../components/Validate'
+import Panel from '../components/Panel'
+import PanelList from '../components/PanelList'
 import Cotizacion from '../components/Cotizacion'
 import Terminos from '../components/Terminos'
-import Datos from '../components/Datos'
 import Dash from '../components/Dash'
 import Settings from '../components/Settings'
-import Flet from '../components/Flet'
+import Preference from '../components/Preference'
 import Contacto from '../components/Contacto'
 import About from '../components/About'
 import NotFound from '../components/NotFound'
 
 Vue.use(Router)
+
+Vue.filter('formatDate', function(value) {
+  if (value) {
+    return moment(String(value)).format('DD/MM/YYYY')
+  }
+})
+
+Vue.filter('formatHour', function(value) {
+  if (value) {
+    return moment(String(value)).format('HH:mm')
+  }
+})
 
 const router = new Router({
   mode: 'history',
@@ -30,17 +46,19 @@ const router = new Router({
       component: Dash
     },    
     {
-      path: '/settings',
-      name: 'settings',
-      component: Settings,
-      meta: {
-        requiresAuth: true
-      }
-    },
-    {
       path: '/register',
       name: 'register',
       component: Register
+    },
+    {
+      path: '/register-success',
+      name: 'register-success',
+      component: RegisterSuccess
+    },
+    {
+      path: '/validate/:code',
+      name: 'validate',
+      component: Validate
     },
     {
       path: '/login',
@@ -48,9 +66,36 @@ const router = new Router({
       component: Login
     },
     {
-      path: '/flet/:flet',
-      name: 'flet',
-      component: Flet
+      path: '/panel',
+      name: 'panel',
+      component: Panel,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/panel/:slug/:view?',
+      name: 'panel-list',
+      component: PanelList,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/preference/:preference',
+      name: 'preference',
+      component: Preference,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/panel/settings',
+      name: 'settings',
+      component: Settings,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/cotizacion',

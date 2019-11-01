@@ -16,7 +16,11 @@ body > div {
   padding: 2rem 1.5rem;
 }
 
-.padless {
+.is-rounded {
+  border-radius: 5px;
+}
+
+.is-padless {
   padding: 0!important
 }
 
@@ -34,7 +38,7 @@ body > div {
 
 .bottomright {
   position: fixed;
-  z-index: 9990;
+  z-index: 1020;
   bottom: 7.5rem;
   right: 0.5rem;
 }
@@ -45,7 +49,6 @@ body > div {
 }
 #map { 
   min-height: 300px;
-  margin-bottom: 5.25rem;
   width:100%; 
 }
 .steps-frame {
@@ -73,7 +76,7 @@ body > div {
 .tosprompt {
   opacity: 0;
   position: fixed;
-  z-index: 9999;
+  z-index: 1023;
   bottom:0;
   left:0;
   right: 0;
@@ -167,7 +170,7 @@ body > div {
   bottom: 0;
   left:0;
   right:0;
-  z-index: 9999;
+  z-index: 1021;
   span {
     color: black;
     font-size: 12px;
@@ -334,6 +337,11 @@ body > div {
 .menu-items .icon {
   position: relative;
   top: 3px;
+}
+
+.icon {
+  position: relative;
+  top: 2px;
 }
 
 .menu-items a.active {
@@ -709,7 +717,6 @@ table {
   }
 }
 
-
 .slideDown {
   opacity:0;
   animation:1s cubic-bezier(1, -0.5, 0.5, 1) .1s normal forwards 1 slideDown;
@@ -728,68 +735,17 @@ table {
   }
 }
 
-.slideOutTL {
-  opacity:1;
-  animation:1s cubic-bezier(1, -0.5, 0.5, 1) .1s normal forwards 1 slideOutTL;
-}
-
-@keyframes slideOutTL{
-  from{
-    opacity:1;
-    -webkit-transform:none;
-    transform:none
-
-  }
-  to{
-    opacity:0;
-    -webkit-transform:translate3d(-100%,-100%,0);
-    transform:translate3d(-100%,-100%,0)
-  }
-}
-
-.slideOutTR {
-  opacity:1;
-  animation:1s cubic-bezier(1, -0.5, 0.5, 1) .1s normal forwards 1 slideOutTR;
-}
-
-@keyframes slideOutTR{
-  from{
-    opacity:1;
-    -webkit-transform:none;
-    transform:none
-
-  }
-  to{
-    opacity:0;
-    -webkit-transform:translate3d(100%,-100%,0);
-    transform:translate3d(100%,-100%,0)
-  }
-}
-
-.slideOutB {
-  opacity:1;
-  animation:1s cubic-bezier(1, -0.5, 0.5, 1) .1s normal forwards 1 slideOutB;
-}
-
-@keyframes slideOutB{
-  from{
-    opacity:1;
-    -webkit-transform:none;
-    transform:none
-
-  }
-  to{
-    opacity:0;
-    -webkit-transform:translate3d(0,100%,0);
-    transform:translate3d(0,100%,0)
-  }
-}
-
 
 .fadeIn {
   animation:.15s ease 0s normal forwards 1 fadeIn;
   -webkit-animation:.75s ease 0s normal forwards 1 fadeIn;
   opacity:0
+}
+
+@keyframes fadeIn{
+  0%{opacity:0}
+  80%{opacity:0}
+  100%{opacity:1}
 }
 
 .fadeIn:nth-child(1){
@@ -848,13 +804,4 @@ table {
   animation-delay: 1.1s;  
 }
 
-@keyframes fadeIn{
-  0%{opacity:0}
-  80%{opacity:0}
-  100%{opacity:1}
-}
 
-/* bulma hacks */
-
-@media screen and (min-width: 790px), print {
-}

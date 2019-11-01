@@ -45,7 +45,7 @@ export default {
           this.$root.snackbar('success',"Sesión iniciada correctamente. Redirigiendo...")
           this.$root.loading = false
           setTimeout(() => {
-            this.$router.push("/")
+            this.$router.push("/panel")
           },3000)
         })
         .catch(err => {
@@ -60,8 +60,7 @@ export default {
   },
   data () {
     return {
-      data:{},
-      msg: 'Welcome to FletsApp'
+      data:{}
     }
   }
 }

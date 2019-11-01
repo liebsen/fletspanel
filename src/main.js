@@ -1,22 +1,23 @@
 import Vue from 'vue'
+import moment from 'moment'
 import VuejsDialog from 'vuejs-dialog';
 import App from './App.vue'
-import store from './store'
 import router from './router'
 import axios from 'axios'
+import store from './components/Store'
 import snackbar from './components/Snackbar';
 
 require('../assets/css/main.scss')
 
 Vue.prototype.$http = axios
-const accessToken = localStorage.getItem('access_token')
+const token = localStorage.getItem('token')
 //const endpoint='https://fletsapidev.herokuapp.com'
 //const endpoint='http://localhost:4000'
  
 Vue.use(VuejsDialog);
 
-if (accessToken) {
-  Vue.prototype.$http.defaults.headers.common['Authorization'] = accessToken
+if (token) {
+  axios.defaults.headers.common['Authorization'] = token
 }
 
 /*
@@ -68,6 +69,13 @@ new Vue({
       setTimeout(() => {
         document.querySelector('.tosprompt').style.display = 'none';
       },1000)
+    },
+    convertDates: function(){
+      document.querySelectorAll('.convert-date').forEach(function(el){
+        const timestamp = el.innerText.toString().substring(0,8)
+        const date = new Date( parseInt( timestamp, 16 ) * 1000 )
+        el.innerHTML = moment(date).format(el.getAttribute('date-format')||null)
+      })
     }
   },
   data : {

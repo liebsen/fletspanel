@@ -8,7 +8,7 @@
         </p>
         <router-link class="button is-white is-large" to="/login">
           <span class="icon">
-            <span class="fas fa-truck-loading"></span>
+            <span class="fas fa-sign-in-alt"></span>
           </span> 
           <span>Ingresar</span>  
         </router-link>
