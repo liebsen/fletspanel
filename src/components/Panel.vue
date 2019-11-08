@@ -13,20 +13,20 @@
         </h6>
         <div class="columns">
           <router-link to="/panel/preferences/day" class="column has-background-info">
-            <h5 class="has-text-white">Preferencias</h5>
-            <h1 class="has-text-white is-size-1 has-text-centered preferences">
+            <p class="has-text-white">Preferencias</p>
+            <h1 class="has-text-white has-text-centered preferences">
               <span v-html="data.day.preferences"></span>
             </h1>
           </router-link>
           <router-link to="/panel/approved/day" class="column has-background-success">
-            <h5 class="has-text-white">Aprobados</h5>
-            <h1 class="has-text-white is-size-1 has-text-centered approved">
+            <p class="has-text-white">Aprobados</p>
+            <h1 class="has-text-white has-text-centered approved">
               <span v-html="data.day.approved"></span>
             </h1>
           </router-link>
           <router-link to="/panel/rejected/day" class="column has-background-danger">
-            <h5 class="has-text-white">Rechazados</h5>
-            <h1 class="has-text-white is-size-1 has-text-centered rejected">
+            <p class="has-text-white">Rechazados</p>
+            <h1 class="has-text-white has-text-centered rejected">
               <span v-html="data.day.rejected"></span>
             </h1>
           </router-link>
@@ -37,20 +37,20 @@
         </h6>
         <div class="columns">
           <router-link to="/panel/preferences/week" class="column has-background-info">
-            <h5 class="has-text-white">Preferencias</h5>
-            <h1 class="has-text-white is-size-1 has-text-centered">
+            <p class="has-text-white">Preferencias</p>
+            <h1 class="has-text-white has-text-centered">
               <span v-html="data.week.preferences"></span>
             </h1>
           </router-link>
           <router-link to="/panel/approved/week" class="column has-background-success">
-            <h5 class="has-text-white">Aprobados</h5>
-            <h1 class="has-text-white is-size-1 has-text-centered">
+            <p class="has-text-white">Aprobados</p>
+            <h1 class="has-text-white has-text-centered">
               <span v-html="data.week.approved"></span>
             </h1>
           </router-link>
           <router-link to="/panel/rejected/week" class="column has-background-danger">
-            <h5 class="has-text-white">Rechazados</h5>
-            <h1 class="has-text-white is-size-1 has-text-centered">
+            <p class="has-text-white">Rechazados</p>
+            <h1 class="has-text-white has-text-centered">
               <span v-html="data.week.rejected"></span>
             </h1>
           </router-link>
@@ -62,20 +62,20 @@
 
         <div class="columns">
           <router-link to="/panel/preferences/month" class="column has-background-info">
-            <h5 class="has-text-white">Preferencias</h5>
-            <h1 class="has-text-white is-size-1 has-text-centered">
+            <p class="has-text-white">Preferencias</p>
+            <h1 class="has-text-white has-text-centered">
               <span v-html="data.month.preferences"></span>
             </h1>
           </router-link>
           <router-link to="/panel/approved/month" class="column has-background-success">
-            <h5 class="has-text-white">Aprobados</h5>
-            <h1 class="has-text-white is-size-1 has-text-centered">
+            <p class="has-text-white">Aprobados</p>
+            <h1 class="has-text-white has-text-centered">
               <span v-html="data.month.approved"></span>
             </h1>
           </router-link>
           <router-link to="/panel/rejected/month" class="column has-background-danger">
-            <h5 class="has-text-white">Rechazados</h5>
-            <h1 class="has-text-white is-size-1 has-text-centered">
+            <p class="has-text-white">Rechazados</p>
+            <h1 class="has-text-white has-text-centered">
               <span v-html="data.month.rejected"></span>
             </h1>
           </router-link>
@@ -107,8 +107,8 @@ export default {
   },
   methods: {
     playSound: function(){
-      var audio = new Audio('/assets/sounds/submit.mp3');
-      //var audio = new Audio('/assets/sounds/hollow.ogg');
+      //var audio = new Audio('/assets/sounds/submit.mp3');
+      var audio = new Audio('/assets/sounds/hollow.ogg');
       audio.play();
     },
     findDay : function(){
@@ -139,7 +139,7 @@ export default {
           document.querySelector('.preferences').classList.remove('fadeIn')
           void document.querySelector('.preferences').offsetWidth;
           document.querySelector('.preferences').classList.add('fadeIn')
-          setTimeout(() => { t.playSound() },675)
+          setTimeout(() => { t.playSound() },1000)
         }
         if(t.data.day.approved != approved){
           document.querySelector('.approved').classList.remove('fadeIn')

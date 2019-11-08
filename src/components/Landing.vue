@@ -6,7 +6,7 @@
         <p>
           <span>Configura tus preferencias y monitorea tu actividad en FletsApp</span>
         </p>
-        <router-link class="button is-white is-large" to="/login">
+        <router-link class="button is-info is-large" to="/login">
           <span class="icon">
             <span class="fas fa-sign-in-alt"></span>
           </span> 
@@ -42,7 +42,7 @@
   }
 
   #photo .button {
-    box-shadow: 10px 10px 0 rgba(0,0,0,0.5)
+    /*box-shadow: 10px 10px 0 rgba(0,0,0,0.5)*/
   }
 
   .landing-text {

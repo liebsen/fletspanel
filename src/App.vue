@@ -50,32 +50,39 @@
         </router-link>
 
         <div class="menu-links has-text-left">
-          <router-link to="/terminos">
+          <a href="https://fletsapp.herokuapp.com/terminos">
             <span class="icon">
               <span class="fas fa-balance-scale"></span>
             </span> 
             <span>Términos y condiciones</span>
-          </router-link>
+          </a>
 
-          <router-link to="/cotizacion">
+          <a href="https://fletsapp.herokuapp.com/cotizacion">
             <span class="icon">
               <span class="fas fa-search-dollar"></span>
             </span> 
             <span>Cómo cotiza <em>FletsApp</em></span>
-          </router-link>
+          </a>
 
-          <router-link to="/about">
+          <a href="https://fletsapp.herokuapp.com/about">
             <span class="icon">
               <span class="fas fa-info-circle"></span>
             </span> 
             <span>Acerca de <em>FletsApp</em></span>
-          </router-link>
-  
-          <router-link to="/register" v-if="!isLoggedIn">
+          </a>
+
+          <router-link to="/settings" v-if="isLoggedIn">
             <span class="icon">
-              <span class="fas fa-ticket-alt"></span>
+              <span class="fas fa-cog"></span>
             </span> 
-            <span>Código de invitación</span>
+            <span>Configuración</span>
+          </router-link>
+
+          <router-link to="/login" v-else>
+            <span class="icon">
+              <span class="fas fa-sign-in-alt"></span>
+            </span> 
+            <span>Iniciar sesión</span>
           </router-link>
 
           <router-link to="/contacto">
@@ -85,14 +92,28 @@
             <span>Contacto</span>
           </router-link>
 
-          <hr v-if="!isLoggedIn">
+          <router-link to="/register" v-if="!isLoggedIn">
+            <span class="icon">
+              <span class="fas fa-ticket-alt"></span>
+            </span> 
+            <span>Código de invitación</span>
+          </router-link>
+
+          <a href="#" @click="logout" v-else>
+            <span class="icon">
+              <span class="fas fa-sign-out-alt"></span>
+            </span> 
+            <span>Cerrar sesión</span>
+          </a>
+
+          <hr v-if="isLoggedIn">
   
-          <div class="has-text-centered" v-if="!isLoggedIn">
+          <div class="has-text-centered" v-if="isLoggedIn">
             <router-link class="button is-white is-large is-outlined" to="/panel">
               <span class="icon">
                 <span class="fas fa-charging-station"></span>
               </span> 
-              <span>Ver Actividad</span>            
+              <span>Mi Actividad</span>            
             </router-link>
           </div>
         </div>
@@ -105,16 +126,26 @@
 
     <div class="tosprompt">
       <div class="notification">
-        <!--p class="has-text-weight-semibold">Ads help us run this site</p-->
-        <p>Utilizamos cookies de análisis para mejorar su experiencia y mejorar esta herramienta. No compartimos sus datos personales con otros. <a href="/politica-de-privacidad">Leer mas</a></p>
-        <div class="has-text-centered">
-          <div class="button" @click="$root.tosAgree(this)">Acepto</div>
+        <div class="is-pulled-right">
+          <a href="#" @click="$root.tosAgree(this)">
+            <span class="icon">
+              <span class="fa fa-times"></span>
+            </span>
+          </a>
         </div>
+        <p>
+          <span class="has-text-black">
+            <span class="fa fa-unlock-alt"></span>&nbsp; 
+            <span>Aviso de Privacidad</span>
+          </span>
+          <span> no compartimos tus datos personales con otros.</span> 
+          <a href="https://fletsapp.herokuapp.com/privacidad" target="_blank">Leer mas</a>
+        </p>
       </div>
     </div>
 
     <div class="legal-footer has-text-centered">
-      <span>©️ 2019 FletsApp &mdash; <router-link to="/terminos">Términos y condiciones</router-link></span>
+      <span>©️ 2019 FletsApp &mdash; <a href="https://fletsapp.herokuapp.com/terminos" target="_blank">Términos y condiciones</a></span>
       <span v-if="isLoggedIn"> | <a @click="logout">Logout</a></span>
       <span v-else> | <router-link to="/login">Login</router-link></span>
     </div>

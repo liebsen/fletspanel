@@ -90,7 +90,7 @@ const router = new Router({
       }
     },
     {
-      path: '/panel/settings',
+      path: '/settings',
       name: 'settings',
       component: Settings,
       meta: {
@@ -98,24 +98,9 @@ const router = new Router({
       }
     },
     {
-      path: '/cotizacion',
-      name: 'cotizacion',
-      component: Cotizacion
-    },    
-    {
-      path: '/terminos',
-      name: 'terminos',
-      component: Terminos
-    },
-    {
       path: '/contacto',
       name: 'contacto',
       component: Contacto
-    },
-    {
-      path: '/about',
-      name: 'about',
-      component: About
     },
     {
       path: '*',
@@ -153,9 +138,11 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 
   if(!localStorage.getItem("tosagree")){
-    document.querySelector('.tosprompt').classList.add('slideIn')
+    setTimeout(() => {
+      document.querySelector('.tosprompt').classList.add('fadeIn')
+    },1000)
   } else {
-    document.querySelector('.tosprompt').style.display = 'none';
+    document.querySelector('.tosprompt').parentNode.removeChild(document.querySelector('.tosprompt'))
   }
 })
 
