@@ -82,6 +82,7 @@ new Vue({
     ver: '1.0.1',
     port:0,
     endpoint:'https://fletsapi.herokuapp.com',
+    //endpoint:'http://localhost:4000',
     loading:true,
     processing:false,
     verification:false,

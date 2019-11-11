@@ -9,8 +9,7 @@
           <span><span v-html="$route.params.preference"></span></span>
         </h4>
         <div class="columns"> 
-
-          <div class="column has-background-light"> 
+          <div class="column"> 
             <span class="has-text-info" v-html="data.createdAt"></span><br>
             <span class="icon">
               <span class="fas fa-user"></span>
@@ -135,7 +134,15 @@ export default {
           "line-color": "#1496ed",
           "line-width": 8
         }
-      });      
+      })
+      var bounds = t.data.ruta.coordinates.reduce(function(bounds, coord) {
+        return bounds.extend(coord);
+      }, new mapboxgl.LngLatBounds(t.data.ruta.coordinates[0], t.data.ruta.coordinates[0]));
+
+      t.map.fitBounds(bounds,{
+        padding:50, 
+        offset:[0,0]
+      })
     },
     createOrigMarker : function(){
       var t = this
@@ -174,11 +181,6 @@ export default {
     },
     createDestMarker : function(){
       var t = this
-      var bounds = new google.maps.LatLngBounds();
-      var orig = new mapboxgl.LngLat(t.data.ruta.from.lng, t.data.ruta.from.lat);
-      var dest = new mapboxgl.LngLat(t.data.ruta.to.lng, t.data.ruta.to.lat);  
-      var llb = new mapboxgl.LngLatBounds(orig, dest);
-      t.map.fitBounds(llb,{padding:50});
       var mapLayer = t.map.getLayer('dest');
 
       if(typeof mapLayer !== 'undefined') {

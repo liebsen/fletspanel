@@ -8,7 +8,7 @@
           </span> 
           <span>Ingresar</span>
         </h2>
-        <h4>Bienvenido <em>FletsPanel</em>. Ingresa tus datos para entrar.</h4>
+        <h4>Bienvenido <em>FletsPanel</em>. Ingresa tus datos para iniciar sesión.</h4>
         <form class="form has-text-left fadeIn" @submit.prevent="submit">
           <div class="field">
             <div class="control">
@@ -50,10 +50,12 @@ export default {
         })
         .catch(err => {
           this.$root.loading = false
-          if(err.response.status === 404){
-            this.$root.snackbar('error',"No se encontró el usuario")
-          } else if(err.response.status === 401){
-            this.$root.snackbar('error',"La constraseña es incorrecta")
+          if(err.response){
+            if(err.response.status === 404){
+              this.$root.snackbar('error',"No se encontró el usuario")
+            } else if(err.response.status === 401){
+              this.$root.snackbar('error',"La constraseña es incorrecta")
+            }
           }
         });
     }

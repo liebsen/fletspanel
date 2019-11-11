@@ -35,9 +35,13 @@ body > div {
 }
 
 .actions {
-  padding-bottom: 1.75rem;
+  background-color: white!important;
   min-height: 125px;
   box-shadow: -5px 0 40px rgba(100,100,100,0.25);
+}
+
+.has-actions {
+  padding-bottom: 125px;
 }
 
 .bottomright {

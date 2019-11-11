@@ -9,6 +9,7 @@ export default new Vuex.Store({
     status: '',
     token: localStorage.getItem('token') || '',
     endpoint: 'https://fletsapi.herokuapp.com',
+    //endpoint: 'http://localhost:4000',
     user : {}
   },
   mutations: {

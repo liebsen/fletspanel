@@ -74,7 +74,7 @@ const router = new Router({
       }
     },
     {
-      path: '/panel/:slug/:view?',
+      path: '/panel/:type/:view/:period?',
       name: 'panel-list',
       component: PanelList,
       meta: {
