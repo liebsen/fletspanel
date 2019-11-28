@@ -9,9 +9,9 @@
           <span>Tu Actividad</span>
         </h4>
         <div class="columns">
-          <div class="column" v-for="item, w in data.data">
+          <div class="column " v-for="item, w in data.data">
             <h2><span></span></h2>
-            <div class="box" v-for="item2,i in item">
+            <div class="panelbox" v-for="item2,i in item">
               <h6>
                 <span v-if="i>0">
                   <span>Hace</span> <span v-html="i"></span>
@@ -114,16 +114,33 @@ export default {
 </script>
 
 <style>
+  .panelbox {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #f8f8f8
+  }
   .bar-container {
     background-color: rgba(0,0,0,0.05);
     border-radius: 3px;
     text-align: left;
+    transition: all ease 0.25s;
+  }
+
+  .bar-container:not(first-child) {
+    margin-bottom: 0.5rem;
+  }
+
+  .bar-container:hover {
+    box-shadow: 0 0 0.5rem rgba(0,0,0,0.25)
   }
 
   .bar {
     text-align: center;
+    font-size: 1rem;
+    font-weight: 600;
     height: 1.5rem;
+    min-width: 1.5rem;
     color: white;
     border-radius: 3px;
+    box-shadow: inset 0 0.75rem 0 rgba(255,255,255,0.15)
   }
 </style>

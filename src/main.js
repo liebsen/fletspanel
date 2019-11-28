@@ -1,26 +1,32 @@
 import Vue from 'vue'
-import moment from 'moment'
-import VuejsDialog from 'vuejs-dialog';
 import App from './App.vue'
 import router from './router'
+import moment from 'moment'
 import axios from 'axios'
 import store from './components/Store'
 import snackbar from './components/Snackbar';
+import VuejsDialog from 'vuejs-dialog';
+import VueSlider from 'vue-slider-component'
+import VueSocketIO from 'vue-socket.io'
+import 'vue-slider-component/theme/antd.css'
 
 require('../assets/css/main.scss')
 
 Vue.prototype.$http = axios
 const token = localStorage.getItem('token')
+const endpoint='https://fletsapi.herokuapp.com'
+
 //const endpoint='https://fletsapidev.herokuapp.com'
 //const endpoint='http://localhost:4000'
+
  
+//Vue.use(VueSlider); 
 Vue.use(VuejsDialog);
 
 if (token) {
   axios.defaults.headers.common['Authorization'] = token
 }
 
-/*
 Vue.use(new VueSocketIO({
     debug: true,
     connection: endpoint,
@@ -31,7 +37,6 @@ Vue.use(new VueSocketIO({
     }
     //, options: { path: "/my-app/" } 
 }))
-*/
 
 new Vue({
   el: '#app',
@@ -81,7 +86,7 @@ new Vue({
   data : {
     ver: '1.0.1',
     port:0,
-    endpoint:'https://fletsapi.herokuapp.com',
+    endpoint:endpoint,
     //endpoint:'http://localhost:4000',
     loading:true,
     processing:false,

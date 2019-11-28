@@ -71,7 +71,7 @@
             <span>Acerca de <em>FletsApp</em></span>
           </a>
 
-          <router-link to="/settings" v-if="isLoggedIn">
+          <router-link to="/configuracion" v-if="isLoggedIn">
             <span class="icon">
               <span class="fas fa-cog"></span>
             </span> 
@@ -109,7 +109,7 @@
           <hr v-if="isLoggedIn">
   
           <div class="has-text-centered" v-if="isLoggedIn">
-            <router-link class="button is-white is-large is-outlined" to="/panel">
+            <router-link class="button is-white is-medium is-outlined" to="/panel">
               <span class="icon">
                 <span class="fas fa-charging-station"></span>
               </span> 

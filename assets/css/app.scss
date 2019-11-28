@@ -35,6 +35,7 @@ body > div {
 }
 
 .actions {
+  z-index: 99;
   background-color: white!important;
   min-height: 125px;
   box-shadow: -5px 0 40px rgba(100,100,100,0.25);
@@ -169,6 +170,12 @@ body > div {
   align-items:center
 }
 
+.columns.is-vbaseline{
+  -webkit-box-align:center;
+  -ms-flex-align:center;
+  align-items:baseline
+}
+
 .logo-emoji {
   font-size: 3.5rem;
 }
@@ -183,6 +190,14 @@ body > div {
     color: black;
     font-size: 12px;
   }
+}
+
+.box{
+  transition: box-shadow ease 0.25s;
+}
+.box:hover {
+  box-shadow: 0 0 1rem rgba(0,0,0,0.25);
+  color: black;
 }
 
 .menu-text {

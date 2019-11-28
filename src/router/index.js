@@ -12,7 +12,10 @@ import PanelList from '../components/PanelList'
 import Cotizacion from '../components/Cotizacion'
 import Terminos from '../components/Terminos'
 import Dash from '../components/Dash'
-import Settings from '../components/Settings'
+import Configuracion from '../components/Configuracion'
+import ConfiguracionDato from '../components/ConfiguracionDato'
+import ConfiguracionCosto from '../components/ConfiguracionCosto'
+import ConfiguracionUbi from '../components/ConfiguracionUbi'
 import Preference from '../components/Preference'
 import Contacto from '../components/Contacto'
 import About from '../components/About'
@@ -90,9 +93,33 @@ const router = new Router({
       }
     },
     {
-      path: '/settings',
-      name: 'settings',
-      component: Settings,
+      path: '/configuracion',
+      name: 'configuracion',
+      component: Configuracion,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/configuracion/costos',
+      name: 'configuracion-costos',
+      component: ConfiguracionCosto,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/configuracion/datos',
+      name: 'configuracion-datos',
+      component: ConfiguracionDato,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/configuracion/ubicacion',
+      name: 'configuracion-ubicacion',
+      component: ConfiguracionUbi,
       meta: {
         requiresAuth: true
       }
@@ -144,6 +171,8 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     document.querySelector('.tosprompt').parentNode.removeChild(document.querySelector('.tosprompt'))
   }
+
+
 })
 
 /*

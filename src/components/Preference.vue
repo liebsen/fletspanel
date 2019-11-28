@@ -11,16 +11,18 @@
         <div class="columns"> 
           <div class="column"> 
             <span class="has-text-info" v-html="data.createdAt"></span><br>
-            <span class="icon">
-              <span class="fas fa-user"></span>
-            </span>              
-            <span class="has-text-darkis-capitalized" v-html="data.datos.nombre"></span><br>
-            <a :href="'tel:' + data.datos.telefono">
+            <div v-if="data.datos">
               <span class="icon">
-                <span class="fas fa-mobile-alt"></span>
-              </span>
-              <span class="has-text-dark" v-html="data.datos.telefono"></span>
-            </a><br>
+                <span class="fas fa-user"></span>
+              </span>              
+              <span class="has-text-darkis-capitalized" v-html="data.datos.nombre"></span><br>
+              <a :href="'tel:' + data.datos.telefono">
+                <span class="icon">
+                  <span class="fas fa-mobile-alt"></span>
+                </span>
+                <span class="has-text-dark" v-html="data.datos.telefono"></span>
+              </a><br>
+            </div>
             <span class="icon">
               <span class="fas fa-map-marker-alt"></span>
             </span>
