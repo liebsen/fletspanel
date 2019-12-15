@@ -148,7 +148,6 @@ body > div {
 }
 
 .menu-container {
-  position: relative;
   max-width: 800px;
   height: 60px;
   margin: 0 auto;
@@ -246,7 +245,7 @@ body > div {
   border-radius: 100%;
   right: 2px;
   top: -2px;
-  z-index: 99;
+  z-index: 100;
 }
 
 .menu-burger svg {
@@ -328,10 +327,11 @@ body > div {
   align-items: center;
   flex-direction: column;
   position: fixed;
-  top: 3rem;
+  top: 0;
   left: 0;
   right: 0;
   width: 100%;
+  padding-top: 1rem;
   text-align: center;
   opacity: 0;
   -webkit-transition: .4s;
@@ -339,7 +339,7 @@ body > div {
   -webkit-transform: translateY(-200%);
           transform: translateY(-200%);
   pointer-events: none;
-  z-index: 9999;
+  z-index: 99;
 }
 
 .menu-items img {
