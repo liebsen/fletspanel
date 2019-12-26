@@ -4,7 +4,7 @@
       <div class="container content is-flex-column is-vertical">
         <h4>
           <span class="icon">
-            <span class="fas fa-charging-station"></span>
+            <span class="fas fa-chart-bar"></span>
           </span> 
           <span>Tu Actividad</span>
           <span class="icon">
@@ -141,7 +141,7 @@ export default {
     }).catch(err => {
       t.$root.loading = false
       if(err){
-       t.$root.snackbar('error',"Error.",30000)
+       t.$root.snackbar('error',"Hubo un Error al solicitar datos: " + err,30000)
       }
     })
   },
