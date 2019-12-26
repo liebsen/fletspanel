@@ -53,6 +53,12 @@
               <span v-html="data.estimate.currency"></span>
             </span>
             <span v-if="data.mercadopago" class="has-text-warning" v-html="data.mercadopago.status"></span>
+            <div v-if="data.datos && data.datos.comentarios" class="box">
+              <span class="icon">
+                <span class="fas fa-comments"></span>
+              </span>              
+              <span v-html="data.datos.comentarios"></span>
+            </div>
           </div>
           <div class="column">
             <div id='map'></div>
