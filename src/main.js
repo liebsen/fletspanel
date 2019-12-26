@@ -10,6 +10,9 @@ import VueSlider from 'vue-slider-component'
 import VueSocketIO from 'vue-socket.io'
 import 'vue-slider-component/theme/antd.css'
 
+
+moment.locale('es')
+
 require('../assets/css/main.scss')
 
 Vue.prototype.$http = axios
@@ -42,6 +45,11 @@ new Vue({
   el: '#app',
   router,
   store,
+  computed: {
+    isLoggedIn: function() {
+      return this.$store.getters.isLoggedIn;
+    }
+  },
   created: function() {
     this.loading = false
   },

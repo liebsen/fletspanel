@@ -7,7 +7,7 @@
     <div class="menu hidden-loading slideDown">
       <div class="menu-container columns is-vcentered is-mobile">
 
-        <router-link v-if="isLoggedIn" class="header-logo" to="/panel">
+        <router-link v-if="$root.isLoggedIn" class="header-logo" to="/panel">
           <img src="/assets/img/delivery-truck.png" >
         </router-link>
 
@@ -41,7 +41,7 @@
       </div>
 
       <div class="menu-items">
-        <router-link to="/panel" v-if="isLoggedIn">
+        <router-link to="/panel" v-if="$root.isLoggedIn">
           <img src="/assets/delivery-truck_1f69a.png" >
         </router-link>
 
@@ -71,7 +71,7 @@
             <span>Acerca de <em>FletsApp</em></span>
           </a>
 
-          <router-link to="/configuracion" v-if="isLoggedIn">
+          <router-link to="/configuracion" v-if="$root.isLoggedIn">
             <span class="icon">
               <span class="fas fa-cog"></span>
             </span> 
@@ -92,7 +92,7 @@
             <span>Contacto</span>
           </router-link>
 
-          <router-link to="/register" v-if="!isLoggedIn">
+          <router-link to="/register" v-if="!$root.isLoggedIn">
             <span class="icon">
               <span class="fas fa-ticket-alt"></span>
             </span> 
@@ -106,14 +106,14 @@
             <span>Cerrar sesión</span>
           </a>
 
-          <hr v-if="isLoggedIn">
+          <hr v-if="$root.isLoggedIn">
   
-          <div class="has-text-centered" v-if="isLoggedIn">
+          <div class="has-text-centered" v-if="$root.isLoggedIn">
             <router-link class="button is-white is-medium is-outlined" to="/panel">
               <span class="icon">
-                <span class="fas fa-charging-station"></span>
+                <span class="fas fa-chart-bar"></span>
               </span> 
-              <span>Mi Actividad</span>            
+              <span>Mi Panel</span>            
             </router-link>
           </div>
         </div>
@@ -139,15 +139,15 @@
             <span>Aviso de Privacidad</span>
           </span>
           <span> no compartimos tus datos personales con otros.</span> 
-          <a href="https://fletsapp.herokuapp.com/privacidad" target="_blank">Leer mas</a>
+          <a href="https://fletsapp.herokuapp.com/privacidad" target="_blank">Leer más</a>
         </p>
       </div>
     </div>
 
     <div class="legal-footer has-text-centered">
       <span>©️ 2019 FletsApp &mdash; <a href="https://fletsapp.herokuapp.com/terminos" target="_blank">Términos y condiciones</a></span>
-      <span v-if="isLoggedIn"> | <a @click="logout">Logout</a></span>
-      <span v-else> | <router-link to="/login">Login</router-link></span>
+      <span v-if="$root.isLoggedIn"> | <a @click="logout">Cerrar sesión</a></span>
+      <span v-else> | <router-link to="/login">Iniciar sesión</router-link></span>
     </div>
 
     <div class="ui-snackbar ui-snackbar--is-inactive">
@@ -158,13 +158,11 @@
 </template>
 
 <script>
+
+import moment from 'moment'
+
 export default {
   name: 'app',
-  computed: {
-    isLoggedIn: function() {
-      return this.$store.getters.isLoggedIn;
-    }
-  },
   methods: {
     logout: function() {
       this.$store.dispatch("logout").then(() => {

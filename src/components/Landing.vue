@@ -6,12 +6,19 @@
         <p>
           <span>Configura tus preferencias y monitorea tu actividad en FletsApp</span>
         </p>
-        <router-link class="button is-info is-large" to="/login">
+        <router-link class="button is-info is-large" to="/login" v-if="!$root.isLoggedIn">
           <span class="icon">
             <span class="fas fa-sign-in-alt"></span>
           </span> 
-          <span>Ingresar</span>  
+          <span>Iniciar sesión</span>  
         </router-link>
+        <router-link class="button is-success is-large" to="/panel" v-if="$root.isLoggedIn">
+          <span class="icon">
+            <span class="fas fa-chart-bar"></span>
+          </span> 
+          <span>Mi Panel</span>  
+        </router-link>
+
       </div>
     </div>
   </div>        

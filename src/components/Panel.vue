@@ -14,17 +14,21 @@
             <div class="panelbox" v-for="item2,i in item">
               <h6>
                 <span v-if="i>0">
-                  <span>Hace</span> <span v-html="i"></span>
+                  <span v-if="w==='week'">
+                    <span>Hace</span> <span v-html="i"></span>
+                  </span>
+                  <span v-if="w==='month'">
+                    <span class="is-capitalized" v-html="getMonth(i)"></span>
+                  </span>
                 </span>
                 <span v-else>
                   <span v-if="w==='week'">Esta</span>
-                  <span v-if="w==='month'">Este</span>
+                  <span v-if="w==='month'">
+                    <span class="is-capitalized" v-html="getMonth(i)"></span>
+                  </span>
                 </span>
                 <span v-if="w==='week'">
                   <span>semana</span><span v-if="i>1">s</span>
-                </span>
-                <span v-if="w==='month'">
-                  <span>mes</span><span v-if="i>1">es</span>
                 </span>
               </h6>
               <article class="media">
@@ -68,6 +72,8 @@
 
 <script>
 import axios from 'axios'
+import moment from 'moment'
+
 export default {
   name: 'panel',
   mounted: function(){
@@ -81,6 +87,9 @@ export default {
     clearInterval(this.$options.interval)
   },
   methods: {
+    getMonth: function(i){
+      return moment().subtract(i,'months').format('MMMM')
+    },
     playSound: function(){
       //var audio = new Audio('/assets/sounds/submit.mp3');
       var audio = new Audio('/assets/sounds/hollow.ogg');
