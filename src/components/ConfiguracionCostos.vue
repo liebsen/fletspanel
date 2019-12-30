@@ -222,7 +222,7 @@
           <div class="container">
             <h6>Costos</h6>
             <div class="table-container">
-              <table class="table is-flex is-striped is-fullwidth">
+              <table class="table is-striped is-fullwidth">
                 <thead>
                   <tr>
                     <th>Concepto</th>
