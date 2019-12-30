@@ -47,11 +47,11 @@
                         <span class="icon">
                           <span class="fas fa-calendar"></span>
                         </span>
-                        <span>{{item.createdAt | formatDate}}</span><br>
-                        <span class="icon">
+                        <span>{{item.createdAt | formatDate}}</span> <span>{{item.createdAt | formatHour}}</span><br>
+                        <!--span class="icon">
                           <span class="fas fa-clock"></span>
                         </span>
-                        <span>{{item.createdAt | formatHour}}</span><br>
+                        <span>{{item.createdAt | formatHour}}</span><br-->
                         <div v-if="item.datos">
                           <span class="icon">
                             <span class="fas fa-user"></span>
@@ -68,7 +68,7 @@
                           <span class="fas fa-map-marker"></span>
                         </span>
                         <span class="has-text-dark is-size-7" v-html="item.ruta.to.formatted_address"></span><br-->
-                        <span class="icon">
+                        <!--span class="icon">
                           <span class="fas fa-weight"></span>
                         </span>
                         <span class="has-text-dark">
@@ -81,7 +81,7 @@
                         <span class="icon">
                           <span class="fas fa-stopwatch"></span>
                         </span>
-                        <span class="has-text-dark" v-html="item.ruta.duration.text"></span><br>
+                        <span class="has-text-dark" v-html="item.ruta.duration.text"></span><br-->
                         <span class="icon">
                           <span class="fas fa-money-check-alt"></span>
                         </span>              
