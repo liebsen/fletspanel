@@ -45,7 +45,7 @@
                     <div class="content">
                       <div>
                         <span class="icon">
-                          <span class="fas fa-calendar"></span>
+                          <span class="fas fa-clock"></span>
                         </span>
                         <span>{{item.createdAt | formatDate}}</span> <span>{{item.createdAt | formatHour}}</span><br>
                         <!--span class="icon">

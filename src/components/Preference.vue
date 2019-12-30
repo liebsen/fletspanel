@@ -6,16 +6,24 @@
           <span class="icon">
             <span class="fas fa-truck"></span>
           </span> 
-          <span><span v-html="$route.params.preference"></span></span>
+          <span><span v-html="data.datos.nombre"></span></span>
         </h4>
         <div class="columns"> 
           <div class="column"> 
-            <span class="has-text-info" v-html="data.createdAt"></span><br>
+            <!--span class="has-text-info" v-html="data.createdAt"></span><br-->
+            <span class="icon">
+              <span class="fas fa-calendar"></span>
+            </span>
+            <span>{{data.createdAt | formatDate}}</span></span><br>
+            <span class="icon">
+              <span class="fas fa-clock"></span>
+            </span>
+            <span>{{data.createdAt | formatHour}}</span><br>
             <div v-if="data.datos">
-              <span class="icon">
+              <!--span class="icon">
                 <span class="fas fa-user"></span>
               </span>              
-              <span class="has-text-darkis-capitalized" v-html="data.datos.nombre"></span><br>
+              <span class="has-text-darkis-capitalized" v-html="data.datos.nombre"></span><br-->
               <a :href="'tel:' + data.datos.telefono">
                 <span class="icon">
                   <span class="fas fa-mobile-alt"></span>
