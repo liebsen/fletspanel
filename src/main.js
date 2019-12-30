@@ -21,25 +21,18 @@ const endpoint='https://fletsapi.herokuapp.com'
 
 //const endpoint='https://fletsapidev.herokuapp.com'
 //const endpoint='http://localhost:4000'
-
- 
 //Vue.use(VueSlider); 
+
 Vue.use(VuejsDialog);
 
 if (token) {
   axios.defaults.headers.common['Authorization'] = token
 }
-
+/*
 Vue.use(new VueSocketIO({
     debug: true,
-    connection: endpoint,
-    vuex: {
-        store,
-        actionPrefix: 'SOCKET_',
-        mutationPrefix: 'SOCKET_'
-    }
-    //, options: { path: "/my-app/" } 
-}))
+    connection: endpoint
+}))*/
 
 new Vue({
   el: '#app',

@@ -141,23 +141,43 @@
             </div>
           </div>
         </div>
+
+        <div class="columns">
+          <div class="column">
+            <div class="field">
+              <label class="label">Servicio de carga y descarga</label>
+              <div class="control">
+                <input @click="showAltText('cargo_service')" class="input" v-model="data.cargo.service" type="number" placeholder="Carga y descarga" autofocus required>
+              </div>
+            </div>
+          </div>
+          <div class="column">
+
+          </div>
+          <div class="column">
+
+          </div>
+          <div class="column">
+
+          </div>
+        </div>
       </form>
       
       <hr>
-
-      <form class="form has-text-left fadeIn">
-        <div class="columns">
-          <div class="column">
+    
+      <div class="columns">
+        <div class="column">
+          <form class="form has-text-left fadeIn">
             <h6 class="has-text-dark">
               <span class="icon">
-                <span class="fas fa-money-check"></span>
+                <span class="fas fa-calculator"></span>
               </span>  
               <span>Previsualización de costos</span>
             </h6>
             <div class="field is-horizontal">
               <div class="field-body">
                 <div class="field">
-                  <label class="label">Distancia de la ruta</label>
+                  <label class="label">Distancia ruta</label>
                   <div class="control">
                     <input @change="calcPreview" class="input" v-model="preview.route" type="number" placeholder="15" autofocus required>
                     <vue-slider 
@@ -168,7 +188,7 @@
                   </div>
                 </div>
                 <div class="field">
-                  <label class="label">Peso de la carga</label>
+                  <label class="label">Peso de carga</label>
                   <div class="control">
                     <input @change="calcPreview" class="input" type="number" v-model="preview.cargo" placeholder="200" required>
                     <vue-slider 
@@ -179,11 +199,10 @@
                   </div>
                 </div>
                 <div class="field">
-                  <label class="label">Costos</label>
+                  <label class="label">Servicio de carga/descarga</label>
                   <div class="control">
-                    <input class="input button is-info has-text-right" type="text" placeholder="0ARS total" readonly :value="'Ruta ' + preview.routes">
-                    <input class="input button is-warning has-text-right" type="text" placeholder="0ARS total" readonly :value="'Carga ' + preview.cargos">
-                    <input class="input button is-success has-text-right" type="text" placeholder="0ARS total" readonly :value="'Total ' + preview.total">
+                    <input class="is-checkradio has-background-color is-success" v-model="preview.cargo_service" id="cargo_service" type="checkbox">
+                    <label for="cargo_service"> La entrega requiere servicio</label>
                   </div>
                 </div>
                 <div class="field">
@@ -194,10 +213,61 @@
                 </div>
               </div>
             </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="columns has-text-centered">
+        <div class="column">
+          <div class="container">
+            <h6>Costos</h6>
+            <div class="table-container">
+              <table class="table is-flex is-striped is-fullwidth">
+                <thead>
+                  <tr>
+                    <th>Concepto</th>
+                    <th>Costo</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <span>Ruta</span>
+                      <span v-html="preview.route"></span> <span>Km</span>
+                    </td>
+                    <td>
+                      <span v-html="preview.routes"></span> <span>ARS</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span>Ruta</span>
+                      <span v-html="preview.cargo"></span> <span>Kg</span>
+                    </td>
+                    <td>
+                      <span v-html="preview.cargos"></span> <span>ARS</span>
+                    </td>
+                  </tr>
+                  <tr v-show="preview.cargo_services">
+                    <td>Carga y descarga</td>
+                    <td>
+                      <span v-html="preview.cargo_services"></span> <span>ARS</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Total</td>
+                    <td>
+                      <span v-html="preview.total"></span> <span>ARS</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
-      </form>
+      </div>
     </div>
+
     <div class="columns actions navbar is-fixed-bottom is-vbaseline has-text-centered">
       <div class="column has-text-centered">
          <button type="button" @click="submit" class="button is-link is-medium" :class="{'is-loading' : $root.loading}">Guardar</button>
@@ -280,7 +350,9 @@ export default {
       let wpart = parseFloat(this.data.cargo.price,10) + delta * parseFloat(this.data.cargo.karma,10);
       this.preview.routes = dpart;
       this.preview.cargos = wpart;
-      this.preview.total = parseFloat(Math.round(dpart + wpart)).toFixed(2);
+      this.preview.cargo_services = this.preview.cargo_service ? parseFloat(this.data.cargo.service) : 0;
+      this.preview.total = parseFloat(Math.round(dpart + wpart) + this.preview.cargo_services).toFixed(2);
+
       this.preview.text = [Math.round(dpart),'+',Math.round(wpart),'=', Math.round(this.preview.total),'ARS'].join(' ')
 
       console.log(this.preview.text)
@@ -299,7 +371,8 @@ export default {
           min: 0,
           max: 0,
           price: 0,
-          karma: 0
+          karma: 0,
+          service: 0
         }
       },
       preview : {
@@ -316,6 +389,7 @@ export default {
         cargo_max:'Establece peso de carga que consideras máximo',
         cargo_price:'Establece el precio del peso de carga mínimo',
         cargo_karma:'Establece el precio por peso de carga adicional al mínimo',
+        cargo_service:'Establece el precio por servicio de carga y descarga',
       },
       slider : {
         options: {

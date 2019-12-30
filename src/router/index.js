@@ -13,9 +13,9 @@ import Cotizacion from '../components/Cotizacion'
 import Terminos from '../components/Terminos'
 import Dash from '../components/Dash'
 import Configuracion from '../components/Configuracion'
-import ConfiguracionDato from '../components/ConfiguracionDato'
-import ConfiguracionCosto from '../components/ConfiguracionCosto'
-import ConfiguracionUbi from '../components/ConfiguracionUbi'
+import ConfiguracionDatos from '../components/ConfiguracionDatos'
+import ConfiguracionCostos from '../components/ConfiguracionCostos'
+import ConfiguracionUbicacion from '../components/ConfiguracionUbicacion'
 import Preference from '../components/Preference'
 import Contacto from '../components/Contacto'
 import About from '../components/About'
@@ -103,7 +103,7 @@ const router = new Router({
     {
       path: '/configuracion/costos',
       name: 'configuracion-costos',
-      component: ConfiguracionCosto,
+      component: ConfiguracionCostos,
       meta: {
         requiresAuth: true
       }
@@ -111,7 +111,7 @@ const router = new Router({
     {
       path: '/configuracion/datos',
       name: 'configuracion-datos',
-      component: ConfiguracionDato,
+      component: ConfiguracionDatos,
       meta: {
         requiresAuth: true
       }
@@ -119,7 +119,7 @@ const router = new Router({
     {
       path: '/configuracion/ubicacion',
       name: 'configuracion-ubicacion',
-      component: ConfiguracionUbi,
+      component: ConfiguracionUbicacion,
       meta: {
         requiresAuth: true
       }
