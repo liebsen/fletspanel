@@ -88,7 +88,7 @@
                         <span class="has-text-dark">
                           <span v-html="item.estimate.amount"></span>
                           <span v-html="item.estimate.currency"></span>
-                          <span v-if="item.mercadopago" :class="{ 'has-text-success' : item.mercadopago.status === 'approved','has-text-warning' : item.mercadopago.status === 'in-process','has-text-danger' : item.mercadopago.status === 'rejected'" v-html="item.mercadopago.status"></span>
+                          <span v-if="item.mercadopago" :class="{ 'has-text-success' : item.mercadopago.status === 'approved','has-text-warning' : item.mercadopago.status === 'in-process','has-text-danger' : item.mercadopago.status === 'rejected' }" v-html="item.mercadopago.status"></span>
                         </span>
                       </div>
 
