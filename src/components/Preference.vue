@@ -11,62 +11,140 @@
         <div class="columns"> 
           <div class="column"> 
             <!--span class="has-text-info" v-html="data.createdAt"></span><br-->
-            <span class="icon">
-              <span class="fas fa-calendar"></span>
-            </span>
-            <span>{{data.createdAt | formatDate}}</span></span><br>
-            <span class="icon">
-              <span class="fas fa-clock"></span>
-            </span>
-            <span>{{data.createdAt | formatHour}}</span><br>
-            <div v-if="data.datos">
-              <!--span class="icon">
-                <span class="fas fa-user"></span>
-              </span>              
-              <span class="has-text-darkis-capitalized" v-html="data.datos.nombre"></span><br-->
-              <a :href="'tel:' + data.datos.telefono">
-                <span class="icon">
-                  <span class="fas fa-mobile-alt"></span>
-                </span>
-                <span class="has-text-dark" v-html="data.datos.telefono"></span>
-              </a><br>
-            </div>
-            <span class="icon">
-              <span class="fas fa-map-marker-alt"></span>
-            </span>
-            <span class="has-text-dark" v-html="data.ruta.from.formatted_address"></span><br>
-            <span class="icon">
-              <span class="fas fa-map-marker-alt"></span>
-            </span>
-            <span class="has-text-dark" v-html="data.ruta.to.formatted_address"></span><br>
-            <span class="icon">
-              <span class="fas fa-weight"></span>
-            </span>
-            <span class="has-text-dark">
-              <span v-html="data.carga.peso"></span><span>KG</span>
-            </span><br>
-            <span class="icon">
-              <span class="fas fa-route"></span>
-            </span>    
-            <span class="has-text-dark" v-html="data.ruta.distance.text"></span><br>
-            <span class="icon">
-              <span class="fas fa-stopwatch"></span>
-            </span>    
-            <span class="has-text-dark" v-html="data.ruta.duration.text"></span><br>
-            <span class="icon">
-              <span class="fas fa-money-check-alt"></span>
-            </span>              
-            <span class="has-text-dark">
-              <span v-html="data.estimate.amount"></span>
-              <span v-html="data.estimate.currency"></span>
-            </span>
-            <span v-if="data.mercadopago" class="has-text-warning" v-html="data.mercadopago.status"></span>
-            <div v-if="data.datos && data.datos.comentarios" class="box">
-              <span class="icon">
-                <span class="fas fa-comments"></span>
-              </span>              
-              <span v-html="data.datos.comentarios"></span>
-            </div>
+            <table class="table">
+              <tbody>
+                <tr v-show="data.datos && data.datos.comentarios" class="notification">
+                  <td>
+                    <span class="icon">
+                      <span class="fas fa-comments"></span>
+                    </span>              
+                  </td>
+                  <td>
+                    <span v-html="data.datos.comentarios"></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="icon">
+                      <span class="fas fa-calendar"></span>
+                    </span>
+                  </td>
+                  <td>
+                    <span>{{data.createdAt | formatDate}}</span></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="icon">
+                      <span class="fas fa-clock"></span>
+                    </span>
+                  </td>
+                  <td>
+                    <span>{{data.createdAt | formatHour}}</span>
+                  </td>
+                </tr>
+                <tr v-if="data.datos">
+                  <td>
+                    <span class="icon">
+                      <span class="fas fa-mobile-alt"></span>
+                    </span>
+                  </td>
+                  <td>
+                    <a :href="'tel:' + data.datos.telefono">
+                      <span class="has-text-dark" v-html="data.datos.telefono"></span>
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="icon">
+                      <span class="fas fa-map-marker-alt"></span>
+                    </span>
+                  </td>
+                  <td>
+                    <span class="has-text-dark" v-html="data.ruta.from.formatted_address"></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="icon">
+                      <span class="fas fa-map-marker-alt"></span>
+                    </span>
+                  </td>
+                  <td>
+                    <span class="has-text-dark" v-html="data.ruta.to.formatted_address"></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="icon">
+                      <span class="fas fa-weight"></span>
+                    </span>
+                  </td>
+                  <td>
+                    <span class="has-text-dark">
+                      <span v-html="data.carga.peso"></span><span>KG</span>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="icon">
+                      <span class="fas fa-route"></span>
+                    </span>    
+                  </td>
+                  <td>
+                    <span class="has-text-dark" v-html="data.ruta.distance.text"></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="icon">
+                      <span class="fas fa-stopwatch"></span>
+                    </span>    
+                  </td>
+                  <td>
+                    <span class="has-text-dark" v-html="data.ruta.duration.text"></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="icon">
+                      <span class="fas fa-truck-loading"></span>
+                    </span>    
+                  </td>
+                  <td>
+                    <span v-show="data.carga.service" class="has-text-success">
+                      <span class="icon">
+                        <span class="fa fa-check"></span>
+                      </span>
+                      <span>Con servicio de carga / descarga</span>
+                    </span>
+                    <span v-show="!data.carga.service" class="has-text-danger">
+                      <span class="icon">
+                        <span class="fa fa-times"></span>
+                      </span>
+                      <span>Sin servicio de carga / descarga</span>
+                    </span>
+                  </td>
+                </tr>
+                <tr class="has-background-success has-text-white">
+                  <td>
+                    <span class="icon">
+                      <span class="fas fa-money-check-alt"></span>
+                    </span>
+                  </td>
+                  <td>
+                    <span>
+                      <span v-html="data.estimate.amount"></span>
+                      <span v-html="data.estimate.currency"></span>
+                    </span>
+                    <span v-if="data.mercadopago" class="has-text-warning" v-html="data.mercadopago.status"></span>
+                  </td>
+                </tr>
+
+              </tbody>
+            </table>
           </div>
           <div class="column">
             <div id='map'></div>
