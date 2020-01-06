@@ -42,11 +42,11 @@
 
       <div class="menu-items">
         <div>
-          <router-link to="/panel" v-if="$root.isLoggedIn">
+          <router-link class="has-text-centered" to="/panel" v-if="$root.isLoggedIn">
             <img src="/assets/img/delivery-truck.png">
           </router-link>
 
-          <router-link to="/" v-else>
+          <router-link class="has-text-centered" to="/" v-else>
             <img src="/assets/img/delivery-truck.png">
           </router-link>
 
