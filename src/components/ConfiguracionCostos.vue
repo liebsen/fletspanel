@@ -14,12 +14,12 @@
       <form class="form has-text-left fadeIn" @submit.prevent="submit">
         <div class="columns">
           <div class="column">
-            <h6>
+            <h4 class="has-text-centered">
               <span class="icon">
                 <span class="fas fa-route"></span>
               </span>  
               <span>Ruta</span>
-            </h6>
+            </h4>
           </div>
         </div>
         <div class="columns">
@@ -78,12 +78,12 @@
         </div>
         <div class="columns">
           <div class="column">
-            <h6>
+            <h4 class="has-text-centered">
               <span class="icon">
                 <span class="fas fa-weight"></span>
               </span>
               <span>Carga</span>
-            </h6>
+            </h4>
           </div>
         </div>
         <div class="columns">
@@ -127,7 +127,6 @@
             </div>
           </div>
           <div class="column">
-
             <div class="field">
               <label class="label">Precio kg adicional</label>
               <div class="control">
@@ -167,13 +166,13 @@
     
       <div class="columns">
         <div class="column">
+          <h4 class="has-text-centered has-text-dark">
+            <span class="icon">
+              <span class="fas fa-calculator"></span>
+            </span>  
+            <span>Previsualización de costos</span>
+          </h4>
           <form class="form has-text-left fadeIn">
-            <h6 class="has-text-dark">
-              <span class="icon">
-                <span class="fas fa-calculator"></span>
-              </span>  
-              <span>Previsualización de costos</span>
-            </h6>
             <div class="field is-horizontal">
               <div class="field-body">
                 <div class="field">
@@ -217,10 +216,16 @@
         </div>
       </div>
 
-      <div class="columns has-text-centered">
+      <div class="columns">
         <div class="column">
+
           <div class="container">
-            <h6>Costos</h6>
+            <h4 class="has-text-centered has-text-dark">
+              <span class="icon">
+                <span class="fas fa-search-dollar"></span>
+              </span>  
+              <span>Costo calculado</span>
+            </h4>
             <div class="table-container">
               <table class="table is-striped is-fullwidth">
                 <thead>
@@ -286,14 +291,14 @@ export default {
   mounted: function(){
     var t = this
     t.findall()
-  },
+  },/*
   watch: {
     // a computed getter
     data: function () {
       this.calcPreview()
     },
     deep: true
-  },
+  },*/
   components: {
     VueSlider
   },
