@@ -309,8 +309,8 @@ body > div {
 .menu.fs .menu-bg {
   -webkit-transform: translate3d(50%, -50%, 0);
           transform: translate3d(50%, -50%, 0);
-  width: 200vh;
-  height: 200vh;
+  width: 200vw;
+  height: 200vw;
 }
 
 .menu-burger {
@@ -331,7 +331,6 @@ body > div {
 .menu-items {
   > div {
     margin: auto;
-    margin-right: 1rem;
   }
   display: flex;
   align-items: center;
@@ -839,4 +838,11 @@ table {
   0%{opacity:1}
   80%{opacity:1}
   100%{opacity:0}
+}
+
+@media screen and (max-width: 440px) {
+ .menu.fs .menu-bg {
+   width: 200vh;
+   height: 200vh;
+ }
 }
