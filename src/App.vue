@@ -41,80 +41,82 @@
       </div>
 
       <div class="menu-items">
-        <router-link to="/panel" v-if="$root.isLoggedIn">
-          <img src="/assets/delivery-truck_1f69a.png" >
-        </router-link>
-
-        <router-link to="/" v-else>
-          <img src="/assets/delivery-truck_1f69a.png" >
-        </router-link>
-
-        <div class="menu-links has-text-left">
-          <a href="https://fletsapp.herokuapp.com/terminos">
-            <span class="icon">
-              <span class="fas fa-balance-scale"></span>
-            </span> 
-            <span>Términos y condiciones</span>
-          </a>
-
-          <a href="https://fletsapp.herokuapp.com/cotizacion">
-            <span class="icon">
-              <span class="fas fa-search-dollar"></span>
-            </span> 
-            <span>Cómo cotiza <em>FletsApp</em></span>
-          </a>
-
-          <a href="https://fletsapp.herokuapp.com/about">
-            <span class="icon">
-              <span class="fas fa-info-circle"></span>
-            </span> 
-            <span>Acerca de <em>FletsApp</em></span>
-          </a>
-
-          <router-link to="/configuracion" v-if="$root.isLoggedIn">
-            <span class="icon">
-              <span class="fas fa-cog"></span>
-            </span> 
-            <span>Configuración</span>
+        <div>
+          <router-link to="/panel" v-if="$root.isLoggedIn">
+            <img src="/assets/img/delivery-truck.png">
           </router-link>
 
-          <router-link to="/login" v-else>
-            <span class="icon">
-              <span class="fas fa-sign-in-alt"></span>
-            </span> 
-            <span>Iniciar sesión</span>
+          <router-link to="/" v-else>
+            <img src="/assets/img/delivery-truck.png">
           </router-link>
 
-          <router-link to="/contacto">
-            <span class="icon">
-              <span class="fas fa-envelope"></span>
-            </span> 
-            <span>Contacto</span>
-          </router-link>
-
-          <router-link to="/register" v-if="!$root.isLoggedIn">
-            <span class="icon">
-              <span class="fas fa-ticket-alt"></span>
-            </span> 
-            <span>Código de invitación</span>
-          </router-link>
-
-          <a href="#" @click="logout" v-else>
-            <span class="icon">
-              <span class="fas fa-sign-out-alt"></span>
-            </span> 
-            <span>Cerrar sesión</span>
-          </a>
-
-          <hr v-if="$root.isLoggedIn">
-  
-          <div class="has-text-centered" v-if="$root.isLoggedIn">
-            <router-link class="button is-white is-medium is-outlined" to="/panel">
+          <div class="menu-links has-text-left">
+            <a href="https://fletsapp.herokuapp.com/terminos">
               <span class="icon">
-                <span class="fas fa-chart-bar"></span>
+                <span class="fas fa-balance-scale"></span>
               </span> 
-              <span>Mi Panel</span>            
+              <span>Términos y condiciones</span>
+            </a>
+
+            <a href="https://fletsapp.herokuapp.com/cotizacion">
+              <span class="icon">
+                <span class="fas fa-search-dollar"></span>
+              </span> 
+              <span>Cómo cotiza <em>FletsApp</em></span>
+            </a>
+
+            <a href="https://fletsapp.herokuapp.com/about">
+              <span class="icon">
+                <span class="fas fa-info-circle"></span>
+              </span> 
+              <span>Acerca de <em>FletsApp</em></span>
+            </a>
+
+            <router-link to="/configuracion" v-if="$root.isLoggedIn">
+              <span class="icon">
+                <span class="fas fa-cog"></span>
+              </span> 
+              <span>Configuración</span>
             </router-link>
+
+            <router-link to="/login" v-else>
+              <span class="icon">
+                <span class="fas fa-sign-in-alt"></span>
+              </span> 
+              <span>Iniciar sesión</span>
+            </router-link>
+
+            <router-link to="/contacto">
+              <span class="icon">
+                <span class="fas fa-envelope"></span>
+              </span> 
+              <span>Contacto</span>
+            </router-link>
+
+            <router-link to="/register" v-if="!$root.isLoggedIn">
+              <span class="icon">
+                <span class="fas fa-ticket-alt"></span>
+              </span> 
+              <span>Código de invitación</span>
+            </router-link>
+
+            <a href="#" @click="logout" v-else>
+              <span class="icon">
+                <span class="fas fa-sign-out-alt"></span>
+              </span> 
+              <span>Cerrar sesión</span>
+            </a>
+
+            <hr v-if="$root.isLoggedIn">
+    
+            <div class="has-text-centered" v-if="$root.isLoggedIn">
+              <router-link class="button is-white is-medium is-outlined" to="/panel">
+                <span class="icon">
+                  <span class="fas fa-chart-bar"></span>
+                </span> 
+                <span>Mi Panel</span>            
+              </router-link>
+            </div>
           </div>
         </div>
       </div>    

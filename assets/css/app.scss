@@ -324,15 +324,14 @@ body > div {
 }*/
 
 .menu-items {
+  > div {
+    margin: auto;
+  }
   display: flex;
   align-items: center;
   flex-direction: column;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  height: calc(100vh - 60px);
   width: 100%;
-  padding-top: 1rem;
   text-align: center;
   opacity: 0;
   -webkit-transition: .4s;
@@ -384,7 +383,6 @@ body > div {
   -webkit-transition: 1s;
   transition: 1s;
   opacity: 0;
-  margin-top: 0px;
 }
 
 .menu.fs .menu-items {
