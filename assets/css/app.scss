@@ -104,6 +104,11 @@ body > div {
   background-color: #ffec01;
 }
 
+.is-checkradio[type="checkbox"] + label::after, .is-checkradio[type="checkbox"] + label::after  {
+  border-width: 0.25rem!important;
+}
+
+
 /* spinner */
 
 .spinner-container {

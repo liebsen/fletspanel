@@ -147,7 +147,7 @@
     </div>
 
     <div class="legal-footer has-text-centered">
-      <span>©️ 2019 FletsApp &mdash; <a href="https://fletsapp.herokuapp.com/terminos" target="_blank">Términos y condiciones</a></span>
+      <span>©️ 2020 FletsApp &mdash; <a href="https://fletsapp.herokuapp.com/terminos" target="_blank">Términos y condiciones</a></span>
       <span v-if="$root.isLoggedIn"> | <a @click="logout">Cerrar sesión</a></span>
       <span v-else> | <router-link to="/login">Iniciar sesión</router-link></span>
     </div>
