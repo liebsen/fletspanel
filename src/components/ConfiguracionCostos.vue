@@ -38,7 +38,7 @@
           </div>
           <div class="column">
             <div class="field">
-              <label class="label">Máximo de distancia</label>
+              <label class="label">Máximo distancia</label>
               <div class="control">
                 <input @click="showAltText('route_max')" class="input" type="number" v-model="data.route.max" placeholder="Max" required>
                 <vue-slider
@@ -51,7 +51,7 @@
           </div>
           <div class="column">
             <div class="field">
-              <label class="label">Precio de distancia mínima</label>
+              <label class="label">Precio distancia mínima</label>
               <div class="control">
                 <input @click="showAltText('route_price')" class="input" v-model="data.route.price" type="number" placeholder="Precio" autofocus required>
                 <vue-slider
@@ -64,7 +64,7 @@
           </div>
           <div class="column">
             <div class="field">
-              <label class="label">Precio por km adicional</label>
+              <label class="label">Precio km adicional</label>
               <div class="control">
                 <input @click="showAltText('route_karma')" class="input" type="number" v-model="data.route.karma" placeholder="Karma" required>
                 <vue-slider
@@ -89,7 +89,7 @@
         <div class="columns">
           <div class="column">
             <div class="field">
-              <label class="label">Mínimo de la carga</label>
+              <label class="label">Mínimo de carga</label>
               <div class="control">
                 <input @click="showAltText('cargo_min')" class="input" v-model="data.cargo.min" type="number" placeholder="Min" autofocus required>
                 <vue-slider
@@ -102,7 +102,7 @@
           </div>
           <div class="column">
             <div class="field">
-              <label class="label">Máximo de la carga</label>
+              <label class="label">Máximo de carga</label>
               <div class="control">
                 <input @click="showAltText('cargo_max')" class="input" type="number" v-model="data.cargo.max" placeholder="Max" required>
                 <vue-slider
@@ -115,7 +115,7 @@
           </div>
           <div class="column">
             <div class="field">
-              <label class="label">Precio de la carga mínima</label>
+              <label class="label">Precio de carga mínima</label>
               <div class="control">
                 <input @click="showAltText('cargo_price')" class="input" v-model="data.cargo.price" type="number" placeholder="Precio" autofocus required>
                 <vue-slider
@@ -129,7 +129,7 @@
           <div class="column">
 
             <div class="field">
-              <label class="label">Precio por kg adicional</label>
+              <label class="label">Precio kg adicional</label>
               <div class="control">
                 <input @click="showAltText('cargo_karma')" class="input" type="number" v-model="data.cargo.karma" placeholder="Karma" required>
                 <vue-slider
@@ -145,7 +145,7 @@
         <div class="columns">
           <div class="column">
             <div class="field">
-              <label class="label">Servicio de carga y descarga</label>
+              <label class="label">Servicio carga / descarga</label>
               <div class="control">
                 <input @click="showAltText('cargo_service')" class="input" v-model="data.cargo.service" type="number" placeholder="Carga y descarga" autofocus required>
               </div>
@@ -241,7 +241,7 @@
                   </tr>
                   <tr>
                     <td>
-                      <span>Ruta</span>
+                      <span>Carga</span>
                       <span v-html="preview.cargo"></span> <span>Kg</span>
                     </td>
                     <td>
@@ -249,7 +249,7 @@
                     </td>
                   </tr>
                   <tr v-show="preview.cargo_services">
-                    <td>Carga y descarga</td>
+                    <td>Carga / descarga</td>
                     <td>
                       <span v-html="preview.cargo_services"></span> <span>ARS</span>
                     </td>
