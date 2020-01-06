@@ -53,7 +53,7 @@
   }
 
   .landing-text {
-    background-color: #ffdd57;
+    background-color: #f3fe7e;
     padding: 2rem;
     padding-top: 1.5rem;
     margin-bottom: 1rem;
