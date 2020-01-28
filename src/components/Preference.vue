@@ -247,7 +247,7 @@ export default {
         t.map.removeLayer('orig').removeSource('orig');        
       }
 
-      t.map.loadImage('/assets/img/orig.png', function(error, image) {
+      t.map.loadImage('/static/img/orig.png', function(error, image) {
         if (error) throw error;
         t.map.addImage('orig', image);
         t.map.addLayer({
@@ -282,7 +282,7 @@ export default {
         t.map.removeLayer('dest').removeSource('dest');        
       }
 
-      t.map.loadImage('/assets/img/dest.png', function(error, image) {
+      t.map.loadImage('/static/img/dest.png', function(error, image) {
         if (error) throw error;
         t.map.addImage('dest', image);
         t.map.addLayer({

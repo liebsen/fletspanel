@@ -8,9 +8,14 @@ var app = express();
 
 app.use(sslRedirect());
 app.use(compression());
+
 // Set static files
-//app.use(express.static('dist'));
 app.use(bodyParser.json());
+
+app.use(function(req, res, next) {
+	res.header("Expires", new Date(Date.now() + 2592000000).toUTCString())
+	next()
+})
 
 app.use(express.static(__dirname + '/dist',{
     maxAge: "1d"

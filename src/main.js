@@ -9,7 +9,7 @@ import VuejsDialog from 'vuejs-dialog';
 import VueSlider from 'vue-slider-component'
 import VueSocketIO from 'vue-socket.io'
 import 'vue-slider-component/theme/antd.css'
-
+import '../assets/js/fontawesome_all.js'
 
 moment.locale('es')
 

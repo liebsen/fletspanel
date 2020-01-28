@@ -91,8 +91,8 @@ export default {
       return moment().subtract(i,'months').format('MMMM')
     },
     playSound: function(){
-      //var audio = new Audio('/assets/sounds/submit.mp3');
-      var audio = new Audio('/assets/sounds/hollow.ogg');
+      //var audio = new Audio('/static/sounds/submit.mp3');
+      var audio = new Audio('/static/sounds/hollow.ogg');
       audio.play();
     },
     findall : function(loader){

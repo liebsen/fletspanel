@@ -8,11 +8,11 @@
       <div class="menu-container columns is-vcentered is-mobile">
 
         <router-link v-if="$root.isLoggedIn" class="header-logo" to="/panel">
-          <img src="/assets/img/delivery-truck.png" >
+          <img src="/static/img/delivery-truck.png" >
         </router-link>
 
         <router-link class="header-logo" to="/" v-else>
-          <img src="/assets/img/delivery-truck.png" >
+          <img src="/static/img/delivery-truck.png" >
         </router-link>
 
         <div class="column menu-secondary has-text-centered">
@@ -43,11 +43,11 @@
       <div class="menu-items">
         <div>
           <router-link class="has-text-centered" to="/panel" v-if="$root.isLoggedIn">
-            <img src="/assets/img/delivery-truck.png">
+            <img src="/static/img/delivery-truck.png">
           </router-link>
 
           <router-link class="has-text-centered" to="/" v-else>
-            <img src="/assets/img/delivery-truck.png">
+            <img src="/static/img/delivery-truck.png">
           </router-link>
 
           <div class="menu-links has-text-left">
