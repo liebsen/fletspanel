@@ -6,10 +6,10 @@
           <span class="icon">
             <span class="fas fa-ticket-alt"></span>
           </span> 
-          <span>Código de invitación</span>
+          <span>Código de invitación</span>          
         </h2>
-        <div class="content columns has-background-light is-rounded">
-          <div class="column is-step is-step-code">
+        <div class="content columns is-centered ">
+          <div class="column is-5 is-step is-step-code has-background-light is-rounded" v-show="!codeChecked">
             <h4>Introduce tu código de invitación a <em>FletsApp</em></h4>
             <p>Para validar una cuenta en <em>FletsApp</em> necesitas un código de invitación único para cada usuario. Si todavía no lo tenés podés solicitarlo directamente. <router-link to="/contacto#solicitar-codigo-de-invitacion">Solicitar código de invitación.</router-link></p>
             <form class="form has-text-left fadeIn" @submit.prevent="validate">
@@ -25,7 +25,8 @@
               </div>  
             </form>
           </div>
-          <div class="column is-step is-step-data">
+
+          <div class="column is-5 is-step is-step-data has-background-light is-rounded" v-show="codeChecked">
             <h4>Introduce tus datos para acceder a tu <em>FletsPanel</em>. tu código de invitación a <em>FletsApp</em></h4>
             <p>Para crear una cuenta en <em>FletsApp</em> necesitas un código de invitación. Si todavía no lo tenés pedilo. <router-link to="/contacto">Solicitar código de invitación.</router-link></p>
             <form class="form has-text-left fadeIn" @submit.prevent="submit">
@@ -77,7 +78,7 @@ export default {
   data() {
     return {
       acceptTerms: false,
-      codeChecked: null,
+      codeChecked: false,
       data: {}
     };
   },
@@ -96,7 +97,7 @@ export default {
       }).catch(err => {
         t.$root.loading = false
         if(err){
-          t.codeChecked = null
+          t.codeChecked = false
           if(err.response.status === 403){
             t.$root.snackbar('error',"Error. El email <em>" + t.data.email + "</em> ya se encuentra registrado. Probá con otro email.",30000)
           } else if(err.response.status === 404){
@@ -113,7 +114,7 @@ export default {
         return t.$root.snackbar('error',"El email y su confirmación deben coincidir.")
       if(!t.acceptTerms)
         return t.$root.snackbar('error',"Debes aceptar nuestros términos y condiciones para crear una cuenta") 
-      t.$root.loading = true
+      t.$root.loading = false
       delete t.data.email2 
       this.$store
         .dispatch("register", t.data)
