@@ -8,11 +8,11 @@
           </span> 
           <span>Código de invitación</span>          
         </h2>
-        <div class="content columns is-centered ">
-          <div class="column is-5 is-step is-step-code has-background-light is-rounded" v-show="!codeChecked">
-            <h4>Introduce tu código de invitación a <em>FletsApp</em></h4>
-            <p>Para validar una cuenta en <em>FletsApp</em> necesitas un código de invitación único para cada usuario. Si todavía no lo tenés podés solicitarlo directamente. <router-link to="/contacto#solicitar-codigo-de-invitacion">Solicitar código de invitación.</router-link></p>
+        <div class="content columns column is-centered">
+          <div class="column is-6 is-step is-step-code has-background-light is-rounded" v-show="!codeChecked">
             <form class="form has-text-left fadeIn" @submit.prevent="validate">
+              <h4>Ingresá tu código de invitación a <em>FletsApp</em></h4>
+              <p>Para validar una cuenta en <em>FletsApp</em> necesitás un código de invitación único para cada usuario. Si todavía no lo tenés <router-link to="/contacto#solicitar-codigo-de-invitacion">solicitalo acá.</router-link></p>
               <div class="field">
                 <div class="control">
                   <input v-model="data.code" class="input is-info" type="text" placeholder="Código de invitación" required autofocus>
@@ -20,16 +20,16 @@
               </div>
               <div class="field">
                 <div class="control">
-                  <button type="submit" class="button is-link is-medium is-fullwidth" :class="{'is-loading' : $root.loading}">Validar mi código de invitación</button>
+                  <button type="submit" class="button is-link is-medium is-fullwidth" :class="{'is-loading' : $root.loading}">Validar código de invitación</button>
                 </div>
               </div>  
             </form>
           </div>
 
-          <div class="column is-5 is-step is-step-data has-background-light is-rounded" v-show="codeChecked">
-            <h4>Introduce tus datos para acceder a tu <em>FletsPanel</em>. tu código de invitación a <em>FletsApp</em></h4>
-            <p>Para crear una cuenta en <em>FletsApp</em> necesitas un código de invitación. Si todavía no lo tenés pedilo. <router-link to="/contacto">Solicitar código de invitación.</router-link></p>
+          <div class="column is-6 is-step is-step-data has-background-light is-rounded" v-show="codeChecked">
             <form class="form has-text-left fadeIn" @submit.prevent="submit">
+              <h4>¡Tu código de invitación funcionó!</h4>
+              <p>Ahora ingresá tus datos para registrarte en <em>FletsPanel</em>. Te enviaremos un correo para que valides tu cuenta.</p>
               <div class="field">
                 <div class="control">
                   <input v-model="data.name" class="input is-success" type="text" placeholder="¿Cómo te llamas?" required autofocus>

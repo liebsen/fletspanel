@@ -8,24 +8,29 @@
           </span> 
           <span>Ingresar</span>
         </h2>
-        <h4>Bienvenido <em>FletsPanel</em>. Ingresa tus datos para iniciar sesión.</h4>
-        <form class="form has-text-left fadeIn" @submit.prevent="submit">
-          <div class="field">
-            <div class="control">
-              <input v-model="data.email" class="input is-success" type="text" placeholder="user@fletsapp.com">
-            </div>
+        <div class="content columns column is-centered">
+          <div class="column is-6 has-background-light is-rounded">
+            <form class="form has-text-left fadeIn" @submit.prevent="submit">
+              <h4>Bienvenido <em>FletsPanel</em></h4>
+              <p>Ingresa tus datos para iniciar sesión</p>
+              <div class="field">
+                <div class="control">
+                  <input v-model="data.email" class="input is-success" type="text" placeholder="user@fletsapp.com" required>
+                </div>
+              </div>
+              <div class="field">
+                <div class="control">
+                  <input v-model="data.password" class="input is-success" type="password" placeholder="********" required>
+                </div>
+              </div>
+              <div class="field">
+                <div class="control">
+                  <button type="submit" class="button is-link is-medium is-fullwidth" :class="{'is-loading' : $root.loading}">Ingresar</button>
+                </div>
+              </div>  
+            </form>
           </div>
-          <div class="field">
-            <div class="control">
-              <input v-model="data.password" class="input is-success" type="password" placeholder="********">
-            </div>
-          </div>
-          <div class="field">
-            <div class="control">
-              <button type="submit" class="button is-link is-medium is-fullwidth" :class="{'is-loading' : $root.loading}">Ingresar</button>
-            </div>
-          </div>  
-        </form>
+        </div>
       </div>
     </div>
   </section>
