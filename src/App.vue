@@ -112,7 +112,7 @@
             <div class="has-text-centered" v-if="$root.isLoggedIn">
               <router-link class="button is-white is-medium is-outlined" to="/panel">
                 <span class="icon">
-                  <span class="fas fa-chart-bar"></span>
+                  <span class="fas fa-chart-line"></span>
                 </span> 
                 <span>Mi Panel</span>            
               </router-link>

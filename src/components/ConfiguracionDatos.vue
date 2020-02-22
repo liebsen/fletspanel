@@ -1,62 +1,80 @@
 <template>
-  <div>
-    <div class="container has-actions content is-flex-column is-vertical">
-      <div class="column">
-        <h2>
-          <span class="icon">
-            <span class="fas fa-cog"></span>
-          </span> 
-          <span>Configuración de Dtos</span>
-        </h2>
-        <h4>Indica cuales son tus datos principales.</h4>
-        <p>Por favor ingresa tus datos de preferencias para tus cotizaciones.</p>
+  <div class="hero">
+    <div class="has-background-light">
+      <div class="container">
+        <div class="column">
+          <h6>
+            <router-link to="/configuracion">
+              <span class="icon">              
+                <span class="fa fa-cog"></span>
+              </span>
+              <span>Configuración</span>
+            </router-link>
+          </h6>
+          <h6>
+            <span class="icon">              
+              <span class="fa fa-image"></span>
+            </span>
+            <span>Datos</span>
+          </h6>
+        </div>
       </div>
-      <form class="form has-text-left fadeIn" @submit.prevent="submit">
-        <div class="columns">
-          <div class="column">
-            <h6>
-              <span class="icon">
-                <span class="fas fa-user"></span>
-              </span>  
-              <span>Nombre</span>
-            </h6>
-          </div>
+    </div>
+    <div class="columns is-desktop is-vcentered">
+      <div class="column">
+        <div class="container has-actions content">
+
+          <h4>Indica cuales son tus datos principales.</h4>
+          <p>Por favor ingresa tus datos de preferencias para tus cotizaciones.</p>
+
+          <form class="form has-text-left fadeIn" @submit.prevent="submit">
+            <div class="columns">
+              <div class="column">
+                <h6>
+                  <span class="icon">
+                    <span class="fas fa-user"></span>
+                  </span>  
+                  <span>Nombre</span>
+                </h6>
+              </div>
+            </div>
+            <div class="columns">
+              <div class="column">
+                <div class="field">
+                  <label class="label">Nombre proveedor</label>
+                  <div class="control">
+                    <input class="input" v-model="data.nombre" type="text" placeholder="Nombre" maxlength="15" autofocus required>   
+                  </div>
+                </div>
+              </div>
+              <div class="column">
+                <div class="field">
+                  <label class="label">Email</label>
+                  <div class="control">
+                    <input class="input" type="email" v-model="data.email" placeholder="Email" required>
+                  </div>
+                </div>
+              </div>
+              <div class="column">
+                <div class="field">
+                  <label class="label">Whatsapp</label>
+                  <div class="control">
+                    <input class="input" v-model="data.whatsapp" type="number" placeholder="Whatsapp">
+                  </div>
+                </div>
+              </div>
+              <div class="column">
+                <div class="field">
+                  <label class="label">Facebook</label>
+                  <div class="control">
+                    <input class="input" type="text" v-model="data.facebook" placeholder="Fcebook">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
         </div>
-        <div class="columns">
-          <div class="column">
-            <div class="field">
-              <label class="label">Nombre proveedor</label>
-              <div class="control">
-                <input class="input" v-model="data.nombre" type="text" placeholder="Nombre" maxlength="15" autofocus required>   
-              </div>
-            </div>
-          </div>
-          <div class="column">
-            <div class="field">
-              <label class="label">Email</label>
-              <div class="control">
-                <input class="input" type="email" v-model="data.email" placeholder="Email" required>
-              </div>
-            </div>
-          </div>
-          <div class="column">
-            <div class="field">
-              <label class="label">Whatsapp</label>
-              <div class="control">
-                <input class="input" v-model="data.whatsapp" type="number" placeholder="Whatsapp">
-              </div>
-            </div>
-          </div>
-          <div class="column">
-            <div class="field">
-              <label class="label">Facebook</label>
-              <div class="control">
-                <input class="input" type="text" v-model="data.facebook" placeholder="Fcebook">
-              </div>
-            </div>
-          </div>
-        </div>
-      </form>
+      </div>
     </div>
     <div class="columns actions navbar is-fixed-bottom is-vbaseline has-text-centered">
       <div class="column has-text-centered">

@@ -1,13 +1,27 @@
 <template>
   <section class="hero">
+    <div class="has-background-light">
+      <div class="container">
+        <div class="column">
+          <h6>
+            <router-link to="/panel">
+              <span class="icon">              
+                <span class="fa fa-chart-bar"></span>
+              </span>
+              <span>Tu Actividad</span>
+            </router-link>
+          </h6>
+          <h6>
+            <span class="icon">
+              <span class="fas fa-user-circle"></span>
+            </span> 
+            <span v-html="data.datos.nombre"></span>
+          </h6>
+        </div>
+      </div>
+    </div>
     <div class="hero-body">
       <div class="container content">
-        <h4>
-          <span class="icon">
-            <span class="fas fa-truck"></span>
-          </span> 
-          <span><span v-html="data.datos.nombre"></span></span>
-        </h4>
         <div class="columns"> 
           <div class="column"> 
             <!--span class="has-text-info" v-html="data.createdAt"></span><br-->

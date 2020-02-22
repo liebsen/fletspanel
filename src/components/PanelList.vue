@@ -1,43 +1,54 @@
 <template>
   <section class="hero">
+    <div class="has-background-light">
+      <div class="container">
+        <div class="column">
+          <h6>
+            <router-link to="/panel">
+              <span class="icon">              
+                <span class="fas fa-chart-line"></span>
+              </span>
+              <span>Tu Actividad</span>
+            </router-link>
+          </h6>
+          <h6>
+
+            <span class="icon">              
+              <span class="fa fa-list-alt"></span>
+            </span>
+
+            <span v-show="$route.params.type === 'preferences'">Preferencias</span>
+            <span v-show="$route.params.type === 'approved'">Aprobados</span>
+            <span v-show="$route.params.type === 'rejected'">Rechazados</span>
+
+            <span class="icon">
+              <span class="fas fa-angle-right"></span>
+            </span>
+
+            <span v-show="$route.params.period == 0" class="has-text-info">
+              <span>Est<span v-show="$route.params.view === 'week'">a</span><span v-show="$route.params.view === 'month'">e</span>
+                <span v-show="$route.params.view === 'week'">Semana</span>
+                <span v-show="$route.params.view === 'month'">Mes</span>
+              </span>
+            </span>
+            <span v-show="$route.params.period > 0" class="has-text-info">
+              <span>Hace <span v-html="$route.params.period"></span>
+                <span v-show="$route.params.view === 'week'">
+                  Semana<span v-show="$route.params.period > 1">s</span>
+                </span>
+                <span v-show="$route.params.view === 'month'">
+                  Mes<span v-show="$route.params.period > 1">es</span>
+                </span>
+              </span>
+            </span>
+          </h6>
+        </div>
+      </div>
+    </div>
     <div class="hero-body">
       <div class="container content is-flex-column is-vertical">
-        <h4>
-          <span class="icon">
-            <span class="fas fa-chart-bar"></span>
-          </span> 
-          <span>Tu Actividad</span>
-          <span class="icon">
-            <span class="fas fa-angle-right"></span>
-          </span>
-          <span v-show="$route.params.type === 'preferences'">Preferencias</span>
-          <span v-show="$route.params.type === 'approved'">Aprobados</span>
-          <span v-show="$route.params.type === 'rejected'">Rechazados</span>
-
-          <span class="icon">
-            <span class="fas fa-angle-right"></span>
-          </span>
-
-          <span v-show="$route.params.period == 0" class="has-text-info">
-            <span>Est<span v-show="$route.params.view === 'week'">a</span><span v-show="$route.params.view === 'month'">e</span>
-              <span v-show="$route.params.view === 'week'">Semana</span>
-              <span v-show="$route.params.view === 'month'">Mes</span>
-            </span>
-          </span>
-          <span v-show="$route.params.period > 0" class="has-text-info">
-            <span>Hace <span v-html="$route.params.period"></span>
-              <span v-show="$route.params.view === 'week'">
-                Semana<span v-show="$route.params.period > 1">s</span>
-              </span>
-              <span v-show="$route.params.view === 'month'">
-                Mes<span v-show="$route.params.period > 1">es</span>
-              </span>
-            </span>
-          </span>
-        </h4>
-
         <div class="columns is-multiline"> 
-          <div class="column is-3" v-for="item in data">
+          <div class="column is-4" v-for="item in data">
             <router-link :to="'/preference/' + item._id">
               <div class="box">
                 <article class="media">

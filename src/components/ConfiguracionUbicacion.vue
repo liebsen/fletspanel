@@ -1,46 +1,62 @@
 <template>
-  <div>
-    <div class="container has-actions content is-flex-column is-vertical">
-      <div class="column">
-        <h2>
-          <span class="icon">
-            <span class="fas fa-cog"></span>
-          </span> 
-          <span>Configuración de Ubicación</span>
-        </h2>
-        <h4>Indica cuales son tus preferencias de ubicación.</h4>
-        <p>Por favor ingresa tus datos de preferencias para tus cotizaciones.</p>
+  <div class="hero">
+    <div class="has-background-light">
+      <div class="container">
+        <div class="column">
+          <h6>
+            <router-link to="/configuracion">
+              <span class="icon">              
+                <span class="fa fa-cog"></span>
+              </span>
+              <span>Configuración</span>
+            </router-link>
+          </h6>
+          <h6>
+            <span class="icon">              
+              <span class="fa fa-map-marker"></span>
+            </span>
+            <span>Ubicación</span>
+          </h6>
+        </div>
       </div>
-      <form class="form has-text-left fadeIn" @submit.prevent="submit">
-        <div class="columns">
-          <div class="column">
-            <h6>
-              <span class="icon">
-                <span class="fas fa-route"></span>
-              </span>  
-              <span>Ubicación</span>
-            </h6>
-          </div>
-        </div>
-        <div class="columns">
-          <div class="column">
-            <div class="field">
-              <label class="label">Mínimo de distancia</label>
-              <div class="control">
-                <input class="input" v-model="data.address" type="text" placeholder="Escribe tu dirección y selecciona de la lista" autofocus required>
+    </div>
+    <div class="columns is-desktop is-vcentered">
+      <div class="column">
+        <div class="container has-actions content">
+          <h4>Indica cuales son tus preferencias de ubicación.</h4>
+          <p>Por favor ingresa tus datos de preferencias para tus cotizaciones.</p>
+          <form class="form has-text-left fadeIn" @submit.prevent="submit">
+            <div class="columns">
+              <div class="column">
+                <h6>
+                  <span class="icon">
+                    <span class="fas fa-route"></span>
+                  </span>  
+                  <span>Ubicación</span>
+                </h6>
               </div>
             </div>
-          </div>
-          <div class="column">
-            <div class="field">
-              <label class="label">Radio de entrega</label>
-              <div class="control">
-                <input class="input" type="number" v-model="data.radio" placeholder="Radio de entrega" required>
+            <div class="columns">
+              <div class="column">
+                <div class="field">
+                  <label class="label">Mínimo de distancia</label>
+                  <div class="control">
+                    <input class="input" v-model="data.address" type="text" placeholder="Escribe tu dirección y selecciona de la lista" autofocus required>
+                  </div>
+                </div>
+              </div>
+              <div class="column">
+                <div class="field">
+                  <label class="label">Radio de entrega</label>
+                  <div class="control">
+                    <input class="input" type="number" v-model="data.radio" placeholder="Radio de entrega" required>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
+          </form>
         </div>
-      </form>
+      </div>
     </div>
     <div class="columns actions navbar is-fixed-bottom is-vbaseline has-text-centered">
       <div class="column has-text-centered">

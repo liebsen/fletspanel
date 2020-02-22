@@ -1,13 +1,19 @@
 <template>
   <section class="hero">
+    <div class="has-background-light">
+      <div class="container">
+        <div class="column">
+          <h6>
+            <span class="icon">              
+              <span class="fas fa-chart-line"></span>
+            </span>
+            <span>Tu Actividad</span>
+          </h6>
+        </div>
+      </div>
+    </div>
     <div class="hero-body">
       <div class="container content is-flex-column is-vertical">
-        <h4>
-          <span class="icon">
-            <span class="fas fa-chart-bar"></span>
-          </span> 
-          <span>Tu Actividad</span>
-        </h4>
         <div class="columns">
           <div class="column " v-for="item, w in data.data">
             <h2><span></span></h2>
@@ -88,7 +94,7 @@ export default {
   },
   methods: {
     getMonth: function(i){
-      return moment().subtract(i,'months').format('MMMM')
+      return moment().subtract(i,'months').format('MMMM YYYY')
     },
     playSound: function(){
       //var audio = new Audio('/static/sounds/submit.mp3');

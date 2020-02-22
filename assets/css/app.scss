@@ -14,10 +14,17 @@ body > div {
 
 .hero {
   min-height: 100%;
+  > .has-background-light {
+    min-height: 90px;
+    h6 {
+      margin-top: 0.25rem;
+      margin-bottom: 0.25rem;
+    }
+  }
 }
 
 .hero-body {
-  padding: 2rem 1.5rem;
+  padding: 2rem 1rem;
 }
 
 .is-rounded {
@@ -43,6 +50,17 @@ body > div {
 
 .has-actions {
   padding-bottom: 125px;
+  padding-top: 1.25rem;
+}
+
+.bar-container {
+  border-radius:30px;
+  .bar {
+    border-radius:30px;
+    height: 1.75rem;
+    min-width: 1.75rem;
+    line-height: 1.75rem;
+  }
 }
 
 .bottomright {
@@ -201,7 +219,7 @@ body > div {
   transition: box-shadow ease 0.25s;
 }
 .box:hover {
-  box-shadow: 0 0 1rem rgba(0,0,0,0.25);
+  box-shadow: 0 0 2rem rgba(0,0,0,0.05);
   color: black;
 }
 
