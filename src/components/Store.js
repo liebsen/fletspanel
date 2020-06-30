@@ -8,7 +8,7 @@ export default new Vuex.Store({
   state: {
     status: '',
     token: localStorage.getItem('token') || '',
-    endpoint: 'https://fletsapi.herokuapp.com',
+    endpoint: process.env.EP,
     //endpoint: 'http://localhost:4000',
     user : {}
   },

@@ -16,18 +16,17 @@ moment.locale('es')
 require('../assets/css/main.scss')
 
 Vue.prototype.$http = axios
-const token = localStorage.getItem('token')
-const endpoint='https://fletsapi.herokuapp.com'
 
-//const endpoint='https://fletsapidev.herokuapp.com'
-//const endpoint='http://localhost:4000'
-//Vue.use(VueSlider); 
+axios.defaults.baseURL = process.env.EP
+
+const token = localStorage.getItem('token')
 
 Vue.use(VuejsDialog);
 
 if (token) {
   axios.defaults.headers.common['Authorization'] = token
 }
+
 /*
 Vue.use(new VueSocketIO({
     debug: true,
@@ -87,8 +86,7 @@ new Vue({
   data : {
     ver: '1.0.1',
     port:0,
-    endpoint:endpoint,
-    //endpoint:'http://localhost:4000',
+    endpoint: process.env.EP,
     loading:true,
     processing:false,
     verification:false,
