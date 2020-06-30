@@ -12,13 +12,12 @@
           </span> 
           <span>Iniciar sesión</span>  
         </router-link>
-        <router-link class="button is-success is-large" to="/panel" v-if="$root.isLoggedIn">
+        <router-link class="button is-info is-rounded is-large" to="/panel" v-if="$root.isLoggedIn">
           <span class="icon">
-            <span class="fas fa-chart-bar"></span>
+            <span class="fas fa-chart-bar has-text-white"></span>
           </span> 
-          <span>Mi Panel</span>  
+          <span class="has-text-white">Mi Panel</span>  
         </router-link>
-
       </div>
     </div>
   </div>        

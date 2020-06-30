@@ -110,7 +110,7 @@
             <hr v-if="$root.isLoggedIn">
     
             <div class="has-text-centered" v-if="$root.isLoggedIn">
-              <router-link class="button is-white is-medium is-outlined" to="/panel">
+              <router-link class="button is-white is-rounded is-medium is-outlined" to="/panel">
                 <span class="icon">
                   <span class="fas fa-chart-line"></span>
                 </span> 
