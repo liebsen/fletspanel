@@ -371,14 +371,13 @@ export default {
       }
 
       let wpart = parseFloat(this.data.cargo.price,10) + delta * parseFloat(this.data.cargo.karma,10);
+
       this.preview.routes = dpart;
       this.preview.cargos = wpart;
       this.preview.cargo_services = this.preview.cargo_service ? parseFloat(this.data.cargo.service) : 0;
       this.preview.total = parseFloat(Math.round(dpart + wpart) + this.preview.cargo_services).toFixed(2);
 
-      this.preview.text = [Math.round(dpart),'+',Math.round(wpart),'=', Math.round(this.preview.total),'ARS'].join(' ')
-
-      console.log(this.preview.text)
+      this.preview.text = [Math.round(dpart),'+',Math.round(wpart),'=', Math.round(this.preview.total),'ARS'].join(' ')      
     }
   },
   data () {

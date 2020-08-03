@@ -2,7 +2,7 @@
 
 > Llevalo y traelo al toque
 
-[Demo](https://fletsapp.herokuapp.com).
+[Live](https://panel.fletsapp.com).
 
 ## Build Setup
 
