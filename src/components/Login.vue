@@ -15,7 +15,7 @@
               <p>Ingresa tus datos para iniciar sesión</p>
               <div class="field">
                 <div class="control">
-                  <input v-model="data.email" class="input is-success" type="text" placeholder="user@fletsapp.com" required>
+                  <input v-model="data.email" class="input is-success" type="text" placeholder="user@fletsapp.overlemon.com" required>
                 </div>
               </div>
               <div class="field">

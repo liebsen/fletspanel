@@ -51,21 +51,21 @@
           </router-link>
 
           <div class="menu-links has-text-left">
-            <a href="https://fletsapp.com/terminos">
+            <a href="https://fletsapp.overlemon.com/terminos">
               <span class="icon">
                 <span class="fas fa-balance-scale"></span>
               </span> 
               <span>Términos y condiciones</span>
             </a>
 
-            <a href="https://fletsapp.com/cotizacion">
+            <a href="https://fletsapp.overlemon.com/cotizacion">
               <span class="icon">
                 <span class="fas fa-search-dollar"></span>
               </span> 
               <span>Cómo cotiza <em>FletsApp</em></span>
             </a>
 
-            <a href="https://fletsapp.com/about">
+            <a href="https://fletsapp.overlemon.com/about">
               <span class="icon">
                 <span class="fas fa-info-circle"></span>
               </span> 
@@ -141,13 +141,13 @@
             <span>Aviso de Privacidad</span>
           </span>
           <span> no compartimos tus datos personales con otros.</span> 
-          <a href="https://fletsapp.com/privacidad" target="_blank">Leer más</a>
+          <a href="https://fletsapp.overlemon.com/privacidad" target="_blank">Leer más</a>
         </p>
       </div>
     </div>
 
     <div class="legal-footer has-text-centered">
-      <span>©️ 2020 FletsApp &mdash; <a href="https://fletsapp.com/terminos" target="_blank">Términos y condiciones</a></span>
+      <span>©️ 2020 FletsApp &mdash; <a href="https://fletsapp.overlemon.com/terminos" target="_blank">Términos y condiciones</a></span>
       <span v-if="$root.isLoggedIn"> | <a @click="logout">Cerrar sesión</a></span>
       <span v-else> | <router-link to="/login">Iniciar sesión</router-link></span>
     </div>

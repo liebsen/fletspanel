@@ -2,7 +2,7 @@
 
 > Llevalo y traelo al toque
 
-[Live](https://panel.fletsapp.com).
+[Live](https://panel.fletsapp.overlemon.com).
 
 ## Build Setup
 
