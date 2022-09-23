@@ -1,20 +1,18 @@
 <template>
-  <div class="hero">
+  <div class="container hero">
     <div class="has-background-light">
-      <div class="container">
-        <div class="column">
-          <h6>
-            <span class="icon">              
-              <span class="fa fa-cog"></span>
-            </span>
-            <span>Configuración</span>
-          </h6>
-        </div>
+      <div class="column">
+        <h6>
+          <span class="icon">              
+            <span class="fa fa-cog"></span>
+          </span>
+          <span>Configuración</span>
+        </h6>
       </div>
     </div>
     <div class="columns is-desktop is-vcentered">
       <div class="column">
-        <div class="container has-actions content">
+        <div class="has-actions content">
           <h4>Indica cuales son tus preferencias</h4>
           <p>Por favor ingresa tus datos de preferencias para tus cotizaciones.</p>
           <div class="columns is-vbaseline has-text-centered has-background-success">
